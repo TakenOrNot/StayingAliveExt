@@ -16,7 +16,7 @@
     
     function initHTML () {
 
-        const html = `<div id='countdown'><div class='values'></div></div><script src="lib/easytimer/dist/easytimer.js"></script>`;
+        const html = `<div id='countdown'><div class='values'></div></div><script src="https://takenornot.github.io/StayingAliveExt/lib/easytimer.js"></script>`;
         $('body').append ( html );
 
     }
