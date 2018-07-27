@@ -16,8 +16,12 @@
     
     function initHTML () {
         // <script src="https://takenornot.github.io/StayingAliveExt/lib/easytimer.js">
-        const html = `<div id='countdown'><div class='values'></div></div>
-        <script type='text/javascript'>
+        const html = `<div id='countdown'><div class='values'></div></div>`;
+        $('body').append ( html );
+
+    }
+    
+    
         /**
          * @license easytimer.js v2.0.0
          * Created by Albert González
@@ -532,10 +536,10 @@
         };
 
         export default Timer;
-        </script>`;
-        $('body').append ( html );
-
-    }
+        
+    
+    
+    
     
     
     SWAM.on ( 'gameLoaded', init );
