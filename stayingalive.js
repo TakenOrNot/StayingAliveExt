@@ -16,10 +16,7 @@
     
     function initHTML () {
 
-        const html = `<div id='countdown'></div><script src="lib/easytimer/dist/easytimer.js"></script>`;
-        //$('#redditPanel').css('opacity', '1');
-        // $('body').addClass('smoothload');
-        // $('head').append ( style );
+        const html = `<div id='countdown'><div class='values'></div></div><script src="lib/easytimer/dist/easytimer.js"></script>`;
         $('body').append ( html );
 
     }
