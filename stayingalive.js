@@ -30,15 +30,14 @@
 
             event.stopImmediatePropagation ();
             
-            
             // game.spectatingID is not reliable, as it is null at first when spectating, until we spectate another player
             window.setTimeout(function () {
                  if( $('#btnFreeSpectator').css('display') == 'block' ) {
                     console.log("v key pressed, start respawn countdown"); 
                     // Get todays date and time
-                    var nowspec = new Date().getTime();
+                    var now = new Date().getTime();
                     // Set the date we're counting down to
-                    var countDownDate = nowspec.setSeconds( nowspec.getSeconds() + 540 );
+                    var countDownDate = now.setSeconds( now.getSeconds() + 540 );
 
 
 
