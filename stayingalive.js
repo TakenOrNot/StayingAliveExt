@@ -43,7 +43,8 @@
                             console.log("back to spectate");
                             var specid = $( "#scoreboard .line" ).attr('player-id');
                             console.log("spec " + specid);
-                            Network.sendCommand("spectate", "'" + specid + "'" + "");
+                            // Network.sendCommand("spectate", "'" + specid + "'" + "");
+                            Network.sendCommand("spectate", specid + "");
                         },3000);
                     }, 30000);
                 };       
