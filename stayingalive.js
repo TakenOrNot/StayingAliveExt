@@ -35,10 +35,16 @@
                  if( $('#btnFreeSpectator').css('display') == 'block' ) {
                     console.log("v key pressed, start respawn countdown"); 
                     
-                    var cd = setInterval(function() {
+                    var cd = setTimeout(function() {
                         // TODO if StayingAlive = 1      
                         console.log("RESPAWN");
                         $('#selectaircraft-1').click(); 
+                        window.setTimeout(function () {
+                            var e = new Event("keydown");
+                            e.key="v"; 
+                            e.bubbles=true;
+                            document.dispatchEvent(e);
+                        },3000);
                     }, 54000);
                 };       
                         
