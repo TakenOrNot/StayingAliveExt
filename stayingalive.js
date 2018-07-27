@@ -36,8 +36,9 @@
                     console.log("v key pressed, start respawn countdown"); 
                     
                     var cd = setInterval(function() {
-
-                      console.log("RESPAWN")
+                        // TODO if StayingAlive = 1      
+                        console.log("RESPAWN");
+                        $('#selectaircraft-1').click(); 
                     }, 54000);
                 };       
                         
