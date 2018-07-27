@@ -40,12 +40,12 @@
                         console.log("RESPAWN");
                         $('#selectaircraft-1').click(); 
                         window.setTimeout(function () {
-                            var e = new Event("keydown");
-                            e.key="v"; 
-                            e.bubbles=true;
-                            document.dispatchEvent(e);
+                            console.log("back to spectate");
+                            var specid = $( "#scoreboard" ).child().data('player-id');
+                            console.log("spec " + specid);
+                            Network.sendCommand("spectate", specid + "")
                         },3000);
-                    }, 54000);
+                    }, 30000);
                 };       
                         
             },2000);
