@@ -35,9 +35,9 @@
                  if( $('#btnFreeSpectator').css('display') == 'block' ) {
                     console.log("v key pressed, start respawn countdown"); 
                     // Get todays date and time
-                    var now = new Date().getTime();
+                    var dt = new Date().getTime();
                     // Set the date we're counting down to
-                    var countDownDate = now.setSeconds( now.getSeconds() + 540 );
+                    var countDownDate = dt.setSeconds( dt.getSeconds() + 540 );
 
 
 
