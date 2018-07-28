@@ -46,6 +46,9 @@
                             // Network.sendCommand("spectate", specid + "");
                             Network.spectateForce();
                             stayalive();
+                            console.log("show stay alive GUI");
+                            $("#stayalivecontainer").css({display: "block"});
+                            
                         },4000);
                     }
                 }, 30000);
@@ -60,6 +63,14 @@
         //    console.log("Stay Alive disabled");
         //    stayalive = '';
         //}
+        
+        SWAM.on("playerRespawned", function(data){
+            respawnedid = data['id'];
+            if (respawnedid == Players.getMe().id){
+                console.log("player respawned, hide Stay Alive GUI");
+                $("#stayalivecontainer").css({display: "none"});
+            }
+        });
         
     });
     
