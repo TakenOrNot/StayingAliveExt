@@ -113,12 +113,17 @@
                             // TODO try to force spectate until it works, in case we got killed when respawned
                             var forcespecinterval = setInterval(forcespec, 2000);
                             function forcespec() {
+                                
                                 if( $('#btnFreeSpectator').css('display') == 'block' ) {
-                                        Network.spectateForce();
-                                        stayalivefn();
-                                        console.log("show stay alive GUI");
-                                        $("#stayalivecontainer").css({display: "block"});
+                                        
                                         clearInterval(forcespecinterval);
+                                }
+                                else {
+                                    console.log("try force spec");
+                                    Network.spectateForce();
+                                    stayalivefn();
+                                    console.log("show stay alive GUI");
+                                    $("#stayalivecontainer").css({display: "block"});
                                 }
                             }
                                 
