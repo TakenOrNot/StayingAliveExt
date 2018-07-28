@@ -27,8 +27,8 @@
     $("#stayalive").click(function stayalive (){
         console.log("Stay Alive clicked");
         // if (stayalive === ''){
-        if ($(this).val() == "false") {
-            $(this).val("true");
+        if ($("#stayalive").val() == "false") {
+            $("#stayalive").val("true");
             console.log("Stay Alive enabled");
             //stayalive = 1;
             //function stayalive (){
@@ -57,7 +57,7 @@
                 }, cdtime);
         }
         else {
-            $(this).val("false");
+            $("#stayalive").val("false");
             
         }
             
