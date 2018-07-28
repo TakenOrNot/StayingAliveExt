@@ -1,5 +1,5 @@
 // ------------------------------------------------------------------------
-//   Flag Chaser for StarMash
+//   Stay Alive for StarMash
 // ------------------------------------------------------------------------
 !function () {
     /* INIT */
@@ -51,7 +51,7 @@
                 // },2000);
             
             }
-            stayalive ();    
+            //stayalive ();    
         }
         else {
             console.log("Stay Alive disabled");
