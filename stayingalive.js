@@ -25,7 +25,7 @@
 
     $("#stayalive").click(function stayalive (){
         console.log("Stay Alive clicked");
-        if (!stayalive){
+        if (stayalive === ''){
             console.log("Stay Alive enabled");
             stayalive = 1;
             //function stayalive (){
