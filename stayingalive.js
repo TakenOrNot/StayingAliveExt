@@ -18,16 +18,19 @@
     SWAM.on ( 'gameLoaded', init );
     
     window.stayalive = '';
+    cdtime = 30000;
     
     /* GUI */
     
-    $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='countdown'></div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 400px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Piss Off Jz !</div></div>");
+    $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='countdown'></div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 400px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;' value='false'>Piss Off Jz !</div></div>");
 
     $("#stayalive").click(function stayalive (){
         console.log("Stay Alive clicked");
         // if (stayalive === ''){
+        if ($(this).val() == "false") {
+            $(this).val("true");
             console.log("Stay Alive enabled");
-            stayalive = 1;
+            //stayalive = 1;
             //function stayalive (){
                 console.log("start respawn countdown");
                 // window.setTimeout(function () {
@@ -35,7 +38,7 @@
                 var cd = setTimeout(function() {
                     
                     console.log("respawn countdown over");
-                    if (stayalive){
+                    if (stayalive === 1){
                         console.log("RESPAWN");
                         $('#selectaircraft-1').click(); 
                         window.setTimeout(function () {
@@ -51,7 +54,13 @@
                             
                         },4000);
                     }
-                }, 30000);
+                }, cdtime);
+        }
+        else {
+            $(this).val("false");
+            
+        }
+            
                     // };       
 
                 // },2000);
