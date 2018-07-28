@@ -18,7 +18,8 @@
     SWAM.on ( 'gameLoaded', init );
     
     window.stayalive = false;
-    cdtime = 60000*9;
+    // cdtime = 60000*9;
+    cdtime = 30000;
     
     /* GUI */
     
@@ -40,22 +41,27 @@
         
     $('#selectaircraft-1').click(function (){
         stayalive = false;
+        $("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     }); 
     $('#selectaircraft-2').click(function (){
         stayalive = false;
+        $("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     });     
     $('#selectaircraft-3').click(function (){
         stayalive = false;
+        $("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     });
     $('#selectaircraft-4').click(function (){
         stayalive = false;
+        $("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     });
     $('#selectaircraft-5').click(function (){
         stayalive = false;
+        $("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     }); 
             
