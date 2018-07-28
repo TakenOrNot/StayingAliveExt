@@ -17,18 +17,18 @@
     
     SWAM.on ( 'gameLoaded', init );
     
-    window.stayalive = '';
+    window.stayalive = false;
     cdtime = 30000;
     
     /* GUI */
     
     $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='countdown'></div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 400px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;' value='false'>Piss Off Jz !</div></div>");
 
-    $("#stayalive").click(function stayalive (){
+    $("#stayalive").click(function stayalivefn (){
         console.log("Stay Alive clicked");
         // if (stayalive === ''){
-        if ($("#stayalive").val() == "false") {
-            $("#stayalive").val("true");
+        if (stayalive == "false") {
+            stayalive = true;
             console.log("Stay Alive enabled");
             //stayalive = 1;
             //function stayalive (){
@@ -38,7 +38,7 @@
                 var cd = setTimeout(function() {
                     
                     console.log("respawn countdown over");
-                    if ($("#stayalive").val() == "true"){
+                    if (stayalive == "true"){
                         console.log("RESPAWN");
                         $('#selectaircraft-1').click(); 
                         window.setTimeout(function () {
@@ -48,7 +48,7 @@
                             // Network.sendCommand("spectate", "'" + specid + "'" + "");
                             // Network.sendCommand("spectate", specid + "");
                             Network.spectateForce();
-                            stayalive();
+                            stayalivefn();
                             console.log("show stay alive GUI");
                             $("#stayalivecontainer").css({display: "block"});
                             
@@ -57,7 +57,7 @@
                 }, cdtime);
         }
         else {
-            $("#stayalive").val("false");
+            stayalive = false;
             
         }
             
