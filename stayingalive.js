@@ -41,11 +41,12 @@
                         $('#selectaircraft-1').click(); 
                         window.setTimeout(function () {
                             console.log("back to spectate");
-                            var specid = $( "#scoreboard .line" ).attr('player-id');
-                            console.log("spec " + specid);
+                            // var specid = $( "#scoreboard .line" ).attr('player-id');
+                            // console.log("spectate force");
                             // Network.sendCommand("spectate", "'" + specid + "'" + "");
-                            Network.sendCommand("spectate", specid + "");
-                        },3000);
+                            // Network.sendCommand("spectate", specid + "");
+                            Network.spectateForce();
+                        },4000);
                     }, 30000);
                 };       
                         
