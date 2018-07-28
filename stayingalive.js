@@ -26,34 +26,32 @@
     $("#stayalive").click(function(){
         console.log("Stay Alive clicked");
         if (!stayalive){
-            console.log("Stay Alive enabled");
+            console.log("Stay Alive enabled, start respawn countdown");
             stayalive = 1;
             function stayalive (){
-                window.setTimeout(function () {
-                     if( $('#btnFreeSpectator').css('display') == 'block' ) {
-                        console.log("v key pressed, start respawn countdown"); 
+                // window.setTimeout(function () {
+                     // if( $('#btnFreeSpectator').css('display') == 'block' ) {
+                var cd = setTimeout(function() {
+                    if (stayalive === 0){
+                        console.log("RESPAWN");
+                        $('#selectaircraft-1').click(); 
+                        window.setTimeout(function () {
+                            console.log("back to spectate");
+                            // var specid = $( "#scoreboard .line" ).attr('player-id');
+                            // console.log("spectate force");
+                            // Network.sendCommand("spectate", "'" + specid + "'" + "");
+                            // Network.sendCommand("spectate", specid + "");
+                            Network.spectateForce();
+                            stayalive ();
+                        },4000);
+                    }
+                }, 30000);
+                    // };       
 
-                        var cd = setTimeout(function() {
-                            
-                            if (stayalive === 0){
-                                console.log("RESPAWN");
-                                $('#selectaircraft-1').click(); 
-                                window.setTimeout(function () {
-                                    console.log("back to spectate");
-                                    // var specid = $( "#scoreboard .line" ).attr('player-id');
-                                    // console.log("spectate force");
-                                    // Network.sendCommand("spectate", "'" + specid + "'" + "");
-                                    // Network.sendCommand("spectate", specid + "");
-                                    Network.spectateForce();
-                                    stayalive ();
-                                },4000);
-                            }
-                        }, 30000);
-                    };       
-
-                },2000);
+                // },2000);
             
-          }
+            }
+            stayalive ();    
         }
         else {
             console.log("Stay Alive disabled");
@@ -68,8 +66,15 @@
 
             event.stopImmediatePropagation ();
             
-            // game.spectatingID is not reliable, as it is null at first when spectating, until we spectate another player
-             $("#stayalivecontainer").css({display: "block"});
+            // game.spectatingID is not reliable, as it is null at first when spectating, until we spectate another player      
+            
+             
+            window.setTimeout(function () {
+                if( $('#btnFreeSpectator').css('display') == 'block' ) {
+                    console.log("v key pressed, show stay alive GUI");
+                    $("#stayalivecontainer").css({display: "block"});
+                }
+            },2000);    
             
         }
         
