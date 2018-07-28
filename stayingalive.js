@@ -38,7 +38,7 @@
                 var cd = setTimeout(function() {
                     
                     console.log("respawn countdown over");
-                    if (stayalive === 1){
+                    if ($("#stayalive").val() == "true"){
                         console.log("RESPAWN");
                         $('#selectaircraft-1').click(); 
                         window.setTimeout(function () {
