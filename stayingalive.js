@@ -12,7 +12,7 @@
 
     function initEvents () {
         SWAM.on ( 'keydown', onKeydown );
-        
+        // TODO on CTF match started, wait 10 sec and check if we are in spec, if so AND stayalive = true, launch the countdown
     }
     
     SWAM.on ( 'gameLoaded', init );
@@ -158,6 +158,13 @@
 
     }
     
+    UI.killedBy = function(On) {
+            var Ln = null == On.level ? "" : "<span class=\"level\">" + On.level + "</span>";
+            mn = {
+                type: "destroyed",
+                duration: 3e3,
+                msg: "GULAG<span class=\"playerbig\"><span class=\"flag big flag-" + On.flag + "\"></span>" + UI.escapeHTML(On.name) + Ln + "</span>"
+            }
     
 
     /* REGISTER */
