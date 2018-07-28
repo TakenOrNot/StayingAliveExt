@@ -23,12 +23,12 @@
     
     $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='countdown'></div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 400px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Piss Off Jz !</div></div>");
 
-    $("#stayalive").click(function(){
+    $("#stayalive").click(function stayalive (){
         console.log("Stay Alive clicked");
         if (!stayalive){
             console.log("Stay Alive enabled");
             stayalive = 1;
-            function stayalive (){
+            //function stayalive (){
                 console.log("start respawn countdown");
                 // window.setTimeout(function () {
                      // if( $('#btnFreeSpectator').css('display') == 'block' ) {
@@ -45,7 +45,7 @@
                             // Network.sendCommand("spectate", "'" + specid + "'" + "");
                             // Network.sendCommand("spectate", specid + "");
                             Network.spectateForce();
-                            stayalive ();
+                            stayalive();
                         },4000);
                     }
                 }, 30000);
@@ -53,7 +53,7 @@
 
                 // },2000);
             
-            }
+            //}
             //stayalive ();    
         }
         else {
