@@ -111,20 +111,18 @@
                             // Network.sendCommand("spectate", "'" + specid + "'" + "");
                             // Network.sendCommand("spectate", specid + "");
                             // TODO try to force spectate until it works, in case we got killed when respawned
-                            var inspec = 0;
-                            do {
-                                window.setTimeout(function () {
-                                    if( $('#btnFreeSpectator').css('display') == 'block' ) {
+                            var forcespecinterval = setInterval(forcespec, 2000);
+                            function forcespec() {
+                                if( $('#btnFreeSpectator').css('display') == 'block' ) {
                                         Network.spectateForce();
                                         stayalivefn();
                                         console.log("show stay alive GUI");
                                         $("#stayalivecontainer").css({display: "block"});
-                                        inspec++;
-                                    }
-                                },2000);
-                                
+                                        clearInterval(forcespecinterval);
+                                }
                             }
-                            while (inspec < 1);
+                                
+                            
                             
                             
                         },2000);
