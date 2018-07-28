@@ -31,10 +31,11 @@
         if (stayalive == false) {
             stayalive = true;
             stayalivefn();
+            $("#stayalive").html('Stop Pissing Off Jz');
         }
         else {
             stayalive = false;
-            
+            $("#stayalive").html('Piss Off Jz');
         }
         
         
