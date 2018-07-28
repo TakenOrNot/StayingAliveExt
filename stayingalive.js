@@ -17,7 +17,7 @@
     
     SWAM.on ( 'gameLoaded', init );
     
-    window.stayalive = 0;
+    window.stayalive = '';
     
     /* GUI */
     
@@ -25,7 +25,7 @@
 
     $("#stayalive").click(function(){
         console.log("Stay Alive clicked");
-        if (stayalive = 0){
+        if (!stayalive){
             console.log("Stay Alive enabled, start respawn countdown");
             stayalive = 1;
             function stayalive (){
