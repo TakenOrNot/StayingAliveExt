@@ -62,13 +62,6 @@
             stayalive = 0;
         }
         
-        SWAM.on("playerRespawned", function(data)){
-               
-        }
-        
-                
-        
-        
     });
     
     function onKeydown ( event ) {
