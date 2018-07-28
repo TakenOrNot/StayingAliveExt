@@ -17,7 +17,7 @@
     
     function initHTML () {
         // <script src="https://takenornot.github.io/StayingAliveExt/lib/easytimer.js">
-        const html = `<div id='stayalivecontainer' style='display: none;'><div id='countdown'></div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: -125px;bottom: 350px;width: 150px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 5px;text-align: center;color: #00c92e;font-size: 15px;cursor: pointer;'>Piss Off Jz !</div></div>`;
+        const html = `<div id='stayalivecontainer' style='display: none;'><div id='countdown'></div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 400px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Piss Off Jz !</div></div>`;
         $('body').append ( html );
 
     }
@@ -30,6 +30,7 @@
     $("#stayalive").click(function(){
         
         if (stayalive === 0){
+            console.log("Stay Alive enabled");
             stayalive = 1;
             function stayalive (){
                 window.setTimeout(function () {
@@ -59,6 +60,7 @@
           }
         }
         else {
+            console.log("Stay Alive disabled");
             stayalive = 0;
         }
         
