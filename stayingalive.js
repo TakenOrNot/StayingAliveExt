@@ -25,7 +25,7 @@
 
     $("#stayalive").click(function stayalive (){
         console.log("Stay Alive clicked");
-        if (stayalive === ''){
+        // if (stayalive === ''){
             console.log("Stay Alive enabled");
             stayalive = 1;
             //function stayalive (){
@@ -55,11 +55,11 @@
             
             //}
             //stayalive ();    
-        }
-        else {
-            console.log("Stay Alive disabled");
-            stayalive = '';
-        }
+        // }
+        // else {
+        //    console.log("Stay Alive disabled");
+        //    stayalive = '';
+        //}
         
     });
     
