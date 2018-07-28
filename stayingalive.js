@@ -165,6 +165,7 @@
                 duration: 3e3,
                 msg: "GULAG<span class=\"playerbig\"><span class=\"flag big flag-" + On.flag + "\"></span>" + UI.escapeHTML(On.name) + Ln + "</span>"
             }
+    }
     
 
     /* REGISTER */
