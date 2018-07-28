@@ -25,7 +25,7 @@
 
     $("#stayalive").click(function(){
         console.log("Stay Alive clicked");
-        if (!stayalive){
+        if (stayalive = 0){
             console.log("Stay Alive enabled, start respawn countdown");
             stayalive = 1;
             function stayalive (){
