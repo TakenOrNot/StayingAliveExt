@@ -15,18 +15,14 @@
         
     }
     
-    function initHTML () {
-        // <script src="https://takenornot.github.io/StayingAliveExt/lib/easytimer.js">
-        const html = `<div id='stayalivecontainer' style='display: none;'><div id='countdown'></div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 400px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Piss Off Jz !</div></div>`;
-        $('body').append ( html );
-
-    }
-    
-    
     SWAM.on ( 'gameLoaded', init );
     
     window.stayalive = 0;
     
+    /* GUI */
+    
+    $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='countdown'></div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 400px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Piss Off Jz !</div></div>");
+
     $("#stayalive").click(function(){
         console.log("Stay Alive clicked");
         if (stayalive === 0){
