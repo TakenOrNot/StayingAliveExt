@@ -24,12 +24,46 @@
     
     $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='countdown'></div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 400px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;' value='false'>Piss Off Jz !</div></div>");
 
-    $("#stayalive").click(function stayalivefn (){
+    $("#stayalive").click(function (){
         console.log("Stay Alive clicked");
         console.log(stayalive);
         // if (stayalive === ''){
         if (stayalive == false) {
             stayalive = true;
+            stayalivefn();
+        }
+        else {
+            stayalive = false;
+            
+        }
+        
+        
+        
+            
+                    // };       
+
+                // },2000);
+            
+            //}
+            //stayalive ();    
+        // }
+        // else {
+        //    console.log("Stay Alive disabled");
+        //    stayalive = '';
+        //}
+        
+        SWAM.on("playerRespawned", function(data){
+            respawnedid = data['id'];
+            if (respawnedid == Players.getMe().id){
+                console.log("player respawned, hide Stay Alive GUI");
+                $("#stayalivecontainer").css({display: "none"});
+            }
+        });
+        
+    });
+    
+    function stayalivefn (){
+        if (stayalive == true) {
             console.log("Stay Alive enabled");
             //stayalive = 1;
             //function stayalive (){
@@ -57,32 +91,7 @@
                     }
                 }, cdtime);
         }
-        else {
-            stayalive = false;
-            
-        }
-            
-                    // };       
-
-                // },2000);
-            
-            //}
-            //stayalive ();    
-        // }
-        // else {
-        //    console.log("Stay Alive disabled");
-        //    stayalive = '';
-        //}
-        
-        SWAM.on("playerRespawned", function(data){
-            respawnedid = data['id'];
-            if (respawnedid == Players.getMe().id){
-                console.log("player respawned, hide Stay Alive GUI");
-                $("#stayalivecontainer").css({display: "none"});
-            }
-        });
-        
-    });
+    }
     
     function onKeydown ( event ) {
         
