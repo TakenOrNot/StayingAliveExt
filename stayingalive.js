@@ -38,8 +38,26 @@
             $("#stayalive").html('Piss Off Jz');
         }
         
-        
-        
+    $('#selectaircraft-1').click(function (){
+        stayalive = false;
+        $("#stayalive").html('Piss Off Jz');
+    }); 
+    $('#selectaircraft-2').click(function (){
+        stayalive = false;
+        $("#stayalive").html('Piss Off Jz');
+    });     
+    $('#selectaircraft-3').click(function (){
+        stayalive = false;
+        $("#stayalive").html('Piss Off Jz');
+    });
+    $('#selectaircraft-4').click(function (){
+        stayalive = false;
+        $("#stayalive").html('Piss Off Jz');
+    });
+    $('#selectaircraft-5').click(function (){
+        stayalive = false;
+        $("#stayalive").html('Piss Off Jz');
+    }); 
             
                     // };       
 
@@ -77,7 +95,9 @@
                     console.log("respawn countdown over");
                     if (stayalive == true){
                         console.log("RESPAWN");
-                        $('#selectaircraft-1').click(); 
+                        
+                        UI.selectAircraft(1)
+                        
                         window.setTimeout(function () {
                             console.log("back to spectate");
                             // var specid = $( "#scoreboard .line" ).attr('player-id');
@@ -85,12 +105,23 @@
                             // Network.sendCommand("spectate", "'" + specid + "'" + "");
                             // Network.sendCommand("spectate", specid + "");
                             // TODO try to force spectate until it works, in case we got killed when respawned
-                            Network.spectateForce();
-                            stayalivefn();
-                            console.log("show stay alive GUI");
-                            $("#stayalivecontainer").css({display: "block"});
+                            var inspec = 0;
+                            do {
+                                window.setTimeout(function () {
+                                    if( $('#btnFreeSpectator').css('display') == 'block' ) {
+                                        Network.spectateForce();
+                                        stayalivefn();
+                                        console.log("show stay alive GUI");
+                                        $("#stayalivecontainer").css({display: "block"});
+                                        inspec++;
+                                    }
+                                },2000);
+                                
+                            }
+                            while (inspec < 1);
                             
-                        },4000);
+                            
+                        },2000);
                     }
                 }, cdtime);
         }
