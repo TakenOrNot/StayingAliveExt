@@ -26,8 +26,9 @@
 
     $("#stayalive").click(function stayalivefn (){
         console.log("Stay Alive clicked");
+        console.log(stayalive);
         // if (stayalive === ''){
-        if (stayalive == "false") {
+        if (stayalive == false) {
             stayalive = true;
             console.log("Stay Alive enabled");
             //stayalive = 1;
@@ -38,7 +39,7 @@
                 var cd = setTimeout(function() {
                     
                     console.log("respawn countdown over");
-                    if (stayalive == "true"){
+                    if (stayalive == true){
                         console.log("RESPAWN");
                         $('#selectaircraft-1').click(); 
                         window.setTimeout(function () {
