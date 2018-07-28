@@ -26,13 +26,16 @@
     $("#stayalive").click(function(){
         console.log("Stay Alive clicked");
         if (!stayalive){
-            console.log("Stay Alive enabled, start respawn countdown");
+            console.log("Stay Alive enabled");
             stayalive = 1;
             function stayalive (){
+                console.log("start respawn countdown");
                 // window.setTimeout(function () {
                      // if( $('#btnFreeSpectator').css('display') == 'block' ) {
                 var cd = setTimeout(function() {
-                    if (stayalive === 1){
+                    
+                    console.log("respawn countdown over");
+                    if (stayalive){
                         console.log("RESPAWN");
                         $('#selectaircraft-1').click(); 
                         window.setTimeout(function () {
