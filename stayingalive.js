@@ -18,7 +18,7 @@
     SWAM.on ( 'gameLoaded', init );
     
     window.stayalive = false;
-    cdtime = 30000;
+    cdtime = 60000*9;
     
     /* GUI */
     
@@ -66,9 +66,10 @@
     function stayalivefn (){
         if (stayalive == true) {
             console.log("Stay Alive enabled");
+            
             //stayalive = 1;
             //function stayalive (){
-                console.log("start respawn countdown");
+                console.log("start respawn countdown " + cdtime);
                 // window.setTimeout(function () {
                      // if( $('#btnFreeSpectator').css('display') == 'block' ) {
                 var cd = setTimeout(function() {
