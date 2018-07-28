@@ -7,7 +7,7 @@
         console.log('init Staying Alive');
         // if this is not CTF, dont do anything more
         initEvents ();
-        initHTML ();
+        
     }
 
     function initEvents () {
