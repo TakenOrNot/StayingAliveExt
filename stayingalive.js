@@ -12,17 +12,64 @@
 
     function initEvents () {
         SWAM.on ( 'keydown', onKeydown );
+        
     }
     
     function initHTML () {
         // <script src="https://takenornot.github.io/StayingAliveExt/lib/easytimer.js">
-        const html = `<div id='countdown'></div>`;
+        const html = `<div id='stayalivecontainer' style='display: none;'><div id='countdown'></div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: -125px;bottom: 350px;width: 150px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 5px;text-align: center;color: #00c92e;font-size: 15px;cursor: pointer;'>Piss Off Jz !</div></div>`;
         $('body').append ( html );
 
     }
     
+    
     SWAM.on ( 'gameLoaded', init );
     
+    window.stayalive = 0;
+    
+    $("#stayalive").click(function(){
+        
+        if (stayalive === 0){
+            stayalive = 1;
+            function stayalive (){
+                window.setTimeout(function () {
+                     if( $('#btnFreeSpectator').css('display') == 'block' ) {
+                        console.log("v key pressed, start respawn countdown"); 
+
+                        var cd = setTimeout(function() {
+                            
+                            if (stayalive === 0){
+                                console.log("RESPAWN");
+                                $('#selectaircraft-1').click(); 
+                                window.setTimeout(function () {
+                                    console.log("back to spectate");
+                                    // var specid = $( "#scoreboard .line" ).attr('player-id');
+                                    // console.log("spectate force");
+                                    // Network.sendCommand("spectate", "'" + specid + "'" + "");
+                                    // Network.sendCommand("spectate", specid + "");
+                                    Network.spectateForce();
+                                    stayalive ();
+                                },4000);
+                            }
+                        }, 30000);
+                    };       
+
+                },2000);
+            
+          }
+        }
+        else {
+            stayalive = 0;
+        }
+        
+        SWAM.on("playerRespawned", function(data)){
+               
+        }
+        
+                
+        
+        
+    });
     
     function onKeydown ( event ) {
         
@@ -31,28 +78,8 @@
             event.stopImmediatePropagation ();
             
             // game.spectatingID is not reliable, as it is null at first when spectating, until we spectate another player
-            window.setTimeout(function () {
-                 if( $('#btnFreeSpectator').css('display') == 'block' ) {
-                    console.log("v key pressed, start respawn countdown"); 
-                    
-                    var cd = setTimeout(function() {
-                        // TODO if StayingAlive = 1      
-                        console.log("RESPAWN");
-                        $('#selectaircraft-1').click(); 
-                        window.setTimeout(function () {
-                            console.log("back to spectate");
-                            // var specid = $( "#scoreboard .line" ).attr('player-id');
-                            // console.log("spectate force");
-                            // Network.sendCommand("spectate", "'" + specid + "'" + "");
-                            // Network.sendCommand("spectate", specid + "");
-                            Network.spectateForce();
-                        },4000);
-                    }, 30000);
-                };       
-                        
-            },2000);
+             $("#stayalivecontainer").css({display: "block"});
             
-          
         }
         
         
