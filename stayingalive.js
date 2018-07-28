@@ -32,7 +32,7 @@
                 // window.setTimeout(function () {
                      // if( $('#btnFreeSpectator').css('display') == 'block' ) {
                 var cd = setTimeout(function() {
-                    if (stayalive === 0){
+                    if (stayalive === 1){
                         console.log("RESPAWN");
                         $('#selectaircraft-1').click(); 
                         window.setTimeout(function () {
@@ -55,7 +55,7 @@
         }
         else {
             console.log("Stay Alive disabled");
-            stayalive = 0;
+            stayalive = '';
         }
         
     });
