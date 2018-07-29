@@ -170,13 +170,8 @@
                     // var idletimeelapsed = 0;
                     function idletimecounter() {
                         
-                        if (stayalive == true) {
-                            // not sure we should clear interval here
-                            // clearInterval(idletimecounterinterval);        
-                        }
-                        else {
-                            window.idletimeelapsed++
-                        }
+                        window.idletimeelapsed++
+                        
                     }
                 }
             },2000);    
