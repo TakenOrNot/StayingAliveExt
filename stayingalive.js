@@ -19,7 +19,7 @@
     
     window.stayalive = false;
     // cdtime = 60000*9;
-    cdtime = 60000*8;
+    cdtotaltime = 60000*8;
     window.idletimeelapsed = 0;
     //window.idletimecounterinterval = setInterval(idletimecounter, 1000);
     
@@ -98,9 +98,9 @@
     function stayalivefn (){
         if (stayalive == true) {
             idletimeelapsedms = (idletimeelapsed * 1000);
-            console.log("Stay Alive enabled " + cdtime + "-" + idletimeelapsedms + "=" + (cdtime - idletimeelapsedms));
+            console.log("Stay Alive enabled " + cdtotaltime + "-" + idletimeelapsedms + "=" + (cdtotaltime - idletimeelapsedms));
             
-            cdtime = (cdtime - idletimeelapsedms);
+            cdtime = (cdtotaltime - idletimeelapsedms);
             //stayalive = 1;
             //function stayalive (){
                 console.log("start respawn countdown " + cdtime);
