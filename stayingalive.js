@@ -97,9 +97,10 @@
     
     function stayalivefn (){
         if (stayalive == true) {
-            console.log("Stay Alive enabled " + cdtime + "-" + idletimeelapsed + "=" + (cdtime - idletimeelapsed));
+            idletimeelapsedms = (idletimeelapsed * 1000);
+            console.log("Stay Alive enabled " + cdtime + "-" + idletimeelapsed + "=" + (cdtime - idletimeelapsedms);
             
-            cdtime = (cdtime - idletimeelapsed);
+            cdtime = (cdtime - idletimeelapsedms);
             //stayalive = 1;
             //function stayalive (){
                 console.log("start respawn countdown " + cdtime);
