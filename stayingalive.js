@@ -113,7 +113,7 @@
                         console.log("AUTO RESPAWN IN 10sec");
                         $("#countdown").css({display: "block"});
                         window.setTimeout(function () {
-                            
+                            window.idletimeelapsed = 0;
                             UI.selectAircraft(1)
 
                             window.setTimeout(function () {
@@ -164,7 +164,7 @@
                 if( $('#btnFreeSpectator').css('display') == 'block' ) {
                     console.log("v key pressed, show stay alive GUI");
                     $("#stayalivecontainer").css({display: "block"});
-                    clearInterval(idletimecounterinterval);
+                    window.idletimeelapsed = 0;
                     // TODO : start counting idle time
                     var idletimecounterinterval = setInterval(idletimecounter, 1000);
                     // var idletimeelapsed = 0;
