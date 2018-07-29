@@ -21,6 +21,7 @@
     // cdtime = 60000*9;
     cdtime = 60000*8;
     window.idletimeelapsed = 0;
+    window.idletimecounterinterval = setInterval(idletimecounter, 1000);
     
     /* GUI */
     
@@ -163,7 +164,7 @@
                     console.log("v key pressed, show stay alive GUI");
                     $("#stayalivecontainer").css({display: "block"});
                     // TODO : start counting idle time
-                    var idletimecounterinterval = setInterval(idletimecounter, 1000);
+                    // var idletimecounterinterval = setInterval(idletimecounter, 1000);
                     // var idletimeelapsed = 0;
                     function idletimecounter() {
                         
