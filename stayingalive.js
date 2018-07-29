@@ -98,7 +98,7 @@
     function stayalivefn (){
         if (stayalive == true) {
             idletimeelapsedms = (idletimeelapsed * 1000);
-            console.log("Stay Alive enabled " + cdtime + "-" + idletimeelapsed + "=" + (cdtime - idletimeelapsedms);
+            console.log("Stay Alive enabled " + cdtime + "-" + idletimeelapsed + "=" + (cdtime - idletimeelapsedms));
             
             cdtime = (cdtime - idletimeelapsedms);
             //stayalive = 1;
