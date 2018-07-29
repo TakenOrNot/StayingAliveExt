@@ -77,15 +77,17 @@
         //    stayalive = '';
         //}
         
-        SWAM.on("playerRespawned", function(data){
+        
+        
+    });
+    
+    SWAM.on("playerRespawned", function(data){
             respawnedid = data['id'];
             if (respawnedid == Players.getMe().id){
                 console.log("player respawned, hide Stay Alive GUI");
                 $("#stayalivecontainer").css({display: "none"});
             }
         });
-        
-    });
     
     function stayalivefn (){
         if (stayalive == true) {
@@ -100,37 +102,41 @@
                     
                     console.log("respawn countdown over");
                     if (stayalive == true){
-                        console.log("RESPAWN");
-                        
-                        UI.selectAircraft(1)
+                        console.log("AUTO RESPAWN IN 10sec");
                         
                         window.setTimeout(function () {
-                            console.log("back to spectate");
-                            // var specid = $( "#scoreboard .line" ).attr('player-id');
-                            // console.log("spectate force");
-                            // Network.sendCommand("spectate", "'" + specid + "'" + "");
-                            // Network.sendCommand("spectate", specid + "");
-                            // TODO try to force spectate until it works, in case we got killed when respawned
-                            var forcespecinterval = setInterval(forcespec, 2000);
-                            function forcespec() {
-                                
-                                if( $('#btnFreeSpectator').css('display') == 'block' ) {
-                                        
-                                        clearInterval(forcespecinterval);
+                            
+                            UI.selectAircraft(1)
+
+                            window.setTimeout(function () {
+
+                                console.log("back to spectate");
+                                // var specid = $( "#scoreboard .line" ).attr('player-id');
+                                // console.log("spectate force");
+                                // Network.sendCommand("spectate", "'" + specid + "'" + "");
+                                // Network.sendCommand("spectate", specid + "");
+                                // TODO try to force spectate until it works, in case we got killed when respawned
+                                var forcespecinterval = setInterval(forcespec, 2000);
+                                function forcespec() {
+
+                                    if( $('#btnFreeSpectator').css('display') == 'block' ) {
+
+                                            clearInterval(forcespecinterval);
+                                    }
+                                    else {
+                                        console.log("try force spec");
+                                        Network.spectateForce();
+                                        stayalivefn();
+                                        console.log("show stay alive GUI");
+                                        $("#stayalivecontainer").css({display: "block"});
+                                    }
                                 }
-                                else {
-                                    console.log("try force spec");
-                                    Network.spectateForce();
-                                    stayalivefn();
-                                    console.log("show stay alive GUI");
-                                    $("#stayalivecontainer").css({display: "block"});
-                                }
-                            }
-                                
-                            
-                            
-                            
-                        },2000);
+
+
+
+
+                            },2000);
+                        },10000);    
                     }
                 }, cdtime);
         }
@@ -157,13 +163,7 @@
         
 
     }
-    //$("body").bind('plyrkilledeventhandler', function(){
-        SWAM.on("playerKilled", function (data, dead, killer){
-                        if (dead.id === game.myID){
-                            console.log('GULAG');
-                        }
-        });
-    //});
+   
 
     /* REGISTER */
 
