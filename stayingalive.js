@@ -20,6 +20,7 @@
     window.stayalive = false;
     // cdtime = 60000*9;
     cdtime = 60000*8;
+    window.idletimeelapsed = 0;
     
     /* GUI */
     
@@ -163,7 +164,7 @@
                     $("#stayalivecontainer").css({display: "block"});
                     // TODO : start counting idle time
                     var idletimecounterinterval = setInterval(idletimecounter, 1000);
-                    var idletimeelapsed = 0;
+                    // var idletimeelapsed = 0;
                     function idletimecounter() {
                         
                         idletimeelapsed++ 
