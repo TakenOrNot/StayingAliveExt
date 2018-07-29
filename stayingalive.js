@@ -90,6 +90,8 @@
     
     SWAM.on ( 'gamePrep', function (){
         console.log("game prep");
+        stayalive = false;
+        $("#stayalivecontainer").css({display: "none"});
     });
     
     function stayalivefn (){
