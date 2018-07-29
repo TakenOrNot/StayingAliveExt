@@ -77,15 +77,14 @@
         //    stayalive = '';
         //}
         
-        SWAM.on("playerRespawned", function(data){
+    });
+    
+    SWAM.on("playerRespawned", function(data){
             respawnedid = data['id'];
             if (respawnedid == Players.getMe().id){
                 console.log("player respawned, hide Stay Alive GUI");
                 $("#stayalivecontainer").css({display: "none"});
             }
-        });
-    
-        
     });
     
     SWAM.on ( 'gamePrep', function (){
