@@ -5,14 +5,14 @@
     /* INIT */
     function init () {
         console.log('init Staying Alive');
-        // if this is not CTF, dont do anything more
         initEvents ();
         
     }
 
     function initEvents () {
         SWAM.on ( 'keydown', onKeydown );
-        // TODO on CTF match started, wait 10 sec and check if we are in spec, if so AND stayalive = true, launch the countdown
+        // TODO on CTF match started, wait 10 sec and check if we are in spec, if so lauch idletime, and if stayalive = true, launch also the countdown
+        SWAM.on ( 'CTF_MatchStarted', onMatchStarted );
     }
     
     SWAM.on ( 'gameLoaded', init );
@@ -158,30 +158,36 @@
             event.stopImmediatePropagation ();
             
             // game.spectatingID is not reliable, as it is null at first when spectating, until we spectate another player      
-            
-             
-            window.setTimeout(function () {
-                if( $('#btnFreeSpectator').css('display') == 'block' ) {
-                    console.log("v key pressed, show stay alive GUI");
-                    $("#stayalivecontainer").css({display: "block"});
-                    window.idletimeelapsed = 0;
-                    // TODO : start counting idle time
-                    var idletimecounterinterval = setInterval(idletimecounter, 1000);
-                    // var idletimeelapsed = 0;
-                    function idletimecounter() {
-                        
-                        window.idletimeelapsed++
-                        
-                    }
-                }
-            },2000);    
+            checkspecdelay = 2000;
+            checkspec(checkspecdelay)
+               
             
         }
         
-        
-
     }
-   
+    
+    function onMatchStarted () {
+        checkspecdelay = 10000;
+        checkspec(checkspecdelay)
+    }
+    
+    function checkspec(checkspecdelay){
+        window.setTimeout(function () {
+                    if( $('#btnFreeSpectator').css('display') == 'block' ) {
+                        console.log("v key pressed, show stay alive GUI");
+                        $("#stayalivecontainer").css({display: "block"});
+                        window.idletimeelapsed = 0;
+                        // TODO : start counting idle time
+                        var idletimecounterinterval = setInterval(idletimecounter, 1000);
+                        // var idletimeelapsed = 0;
+                        function idletimecounter() {
+
+                            window.idletimeelapsed++
+
+                        }
+                    }
+                },checkspecdelay); 
+    }
 
     /* REGISTER */
 
