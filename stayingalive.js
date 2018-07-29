@@ -98,7 +98,7 @@
     function stayalivefn (){
         if (stayalive == true) {
             idletimeelapsedms = (idletimeelapsed * 1000);
-            console.log("Stay Alive enabled " + cdtime + "-" + idletimeelapsed + "=" + (cdtime - idletimeelapsedms));
+            console.log("Stay Alive enabled " + cdtime + "-" + idletimeelapsedms + "=" + (cdtime - idletimeelapsedms));
             
             cdtime = (cdtime - idletimeelapsedms);
             //stayalive = 1;
@@ -164,13 +164,15 @@
                 if( $('#btnFreeSpectator').css('display') == 'block' ) {
                     console.log("v key pressed, show stay alive GUI");
                     $("#stayalivecontainer").css({display: "block"});
+                    clearInterval(idletimecounterinterval);
                     // TODO : start counting idle time
                     var idletimecounterinterval = setInterval(idletimecounter, 1000);
                     // var idletimeelapsed = 0;
                     function idletimecounter() {
                         
                         if (stayalive == true) {
-                            clearInterval(idletimecounterinterval);        
+                            // not sure we should clear interval here
+                            // clearInterval(idletimecounterinterval);        
                         }
                         else {
                             window.idletimeelapsed++
