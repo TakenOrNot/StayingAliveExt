@@ -19,7 +19,7 @@
     
     window.stayalive = false;
     // cdtime = 60000*9;
-    cdtime = 30000;
+    cdtime = 60000*8;
     
     /* GUI */
     
