@@ -32,7 +32,7 @@ SWAM.on("playerKilled", function (data, dead, killer){
 
         initHTML ();
         initStyle ();
-        initEvents ();
+        //initEvents ();
 
     }
 
