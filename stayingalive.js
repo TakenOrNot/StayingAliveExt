@@ -23,7 +23,7 @@
     
     /* GUI */
     
-    $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='countdown'></div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px -75px;bottom: 175px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;' value='false'>Piss Off Jz !</div></div>");
+    $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='countdown' style='display:none;height: 100px;text-align: center; padding: 200px;font-size: 2em;'>Respawning in 10 seconds</div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px -75px;bottom: 175px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;' value='false'>Piss Off Jz !</div></div>");
 
     $("#stayalive").click(function (){
         console.log("Stay Alive clicked");
@@ -108,7 +108,7 @@
                     console.log("respawn countdown over");
                     if (stayalive == true){
                         console.log("AUTO RESPAWN IN 10sec");
-                        
+                        $("#countdown").css({display: "block"});
                         window.setTimeout(function () {
                             
                             UI.selectAircraft(1)
@@ -134,6 +134,7 @@
                                         stayalivefn();
                                         console.log("show stay alive GUI");
                                         $("#stayalivecontainer").css({display: "block"});
+                                        $("#countdown").css({display: "none"});
                                     }
                                 }
 
