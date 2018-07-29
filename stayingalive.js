@@ -157,12 +157,13 @@
         
 
     }
-    
-    SWAM.on("playerKilled", function (data, dead, killer){
-                    if (dead.id === game.myID){
-                        console.log('GULAG')
-                    }
-    
+    //$("body").bind('plyrkilledeventhandler', function(){
+        SWAM.on("playerKilled", function (data, dead, killer){
+                        if (dead.id === game.myID){
+                            console.log('GULAG');
+                        }
+        });
+    //});
 
     /* REGISTER */
 
