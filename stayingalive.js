@@ -98,7 +98,7 @@
     function stayalivefn (){
         if (stayalive == true) {
             console.log("Stay Alive enabled " + cdtime + "-" + idletimeelapsed + "=" + (cdtime - idletimeelapsed));
-            clearInterval(idletimecounterinterval);
+            
             cdtime = (cdtime - idletimeelapsed);
             //stayalive = 1;
             //function stayalive (){
@@ -168,7 +168,12 @@
                     // var idletimeelapsed = 0;
                     function idletimecounter() {
                         
-                        window.idletimeelapsed++ 
+                        if (stayalive == true) {
+                            clearInterval(idletimecounterinterval);        
+                        }
+                        else {
+                            window.idletimeelapsed++
+                        }
                     }
                 }
             },2000);    
