@@ -16,10 +16,10 @@ function initStyle () {
 
     }
 
-function initHTML () {
-    const html = `<div id="#msg-destroyed-gulag'></div>`; 
-    $('body').append ( html );
-}
+
+$("body").append("<div id='#msg-destroyed-gulag'></div>");
+    
+
 
 SWAM.on("playerKilled", function (data, dead, killer){
                         if (dead.id === game.myID){
@@ -30,7 +30,7 @@ SWAM.on("playerKilled", function (data, dead, killer){
         
     function init () {
 
-        initHTML ();
+        //initHTML ();
         initStyle ();
         //initEvents ();
 
