@@ -17,7 +17,7 @@
     
     SWAM.on ( 'gameLoaded', init );
     
-    window.osf = config.scalingFactor;
+    
     
     
     /* GUI */
@@ -68,7 +68,8 @@
     });
     
     SWAM.on ( 'gamePrep', function (){
-        console.log("osf =" + osf);
+        window.osf = config.scalingFactor;
+        console.log("gameprep osf =" + osf);
         $("#sfcontainer").css({display: "none"});
     });
     
