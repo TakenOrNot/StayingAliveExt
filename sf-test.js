@@ -22,7 +22,7 @@
     
     /* GUI */
     
-    $('body').append ("<div id='sf' style='display: none;'>SF</div>");
+    $('body').append ("<div id='sfcontainer' style='display: none;'><div id='sf' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px -75px;bottom: 225px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>SF</div></div>");
 
     $("#sf").click(function (){
         console.log("SF clicked");
@@ -31,27 +31,27 @@
         
         $('#selectaircraft-1').click(function (){
             config.scalingFactor = osf;
-            $("#sf").css({display: "none"});
+            $("#sfcontainer").css({display: "none"});
 
         }); 
         $('#selectaircraft-2').click(function (){
             config.scalingFactor = osf;
-            $("#sf").css({display: "none"});
+            $("#sfcontainer").css({display: "none"});
 
         });     
         $('#selectaircraft-3').click(function (){
             config.scalingFactor = osf;
-            $("#sf").css({display: "none"});
+            $("#sfcontainer").css({display: "none"});
 
         });
         $('#selectaircraft-4').click(function (){
             config.scalingFactor = osf;
-            $("#sf").css({display: "none"});
+            $("#sfcontainer").css({display: "none"});
 
         });
         $('#selectaircraft-5').click(function (){
             config.scalingFactor = osf;
-            $("#sf").css({display: "none"});
+            $("#sfcontainer").css({display: "none"});
 
         }); 
 
@@ -62,14 +62,14 @@
             respawnedid = data['id'];
             if (respawnedid == Players.getMe().id){
                 console.log("player respawned, hide Sf");
-                $("#sf").css({display: "none"});
+                $("#sfcontainer").css({display: "none"});
                 config.scalingFactor = osf;
             }
     });
     
     SWAM.on ( 'gamePrep', function (){
         
-        $("#sf").css({display: "none"});
+        $("#sfcontainer").css({display: "none"});
     });
     
     
@@ -98,7 +98,7 @@
         window.setTimeout(function () {
                     if( $('#btnFreeSpectator').css('display') == 'block' ) {
                         console.log("v key pressed, show sf");
-                        $("#sf").css({display: "block"});
+                        $("#sfcontainer").css({display: "block"});
                         
                     }
                 },checkspecdelay); 
