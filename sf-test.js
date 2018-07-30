@@ -68,7 +68,7 @@
     });
     
     SWAM.on ( 'gamePrep', function (){
-        
+        console.log("osf =" + osf);
         $("#sfcontainer").css({display: "none"});
     });
     
