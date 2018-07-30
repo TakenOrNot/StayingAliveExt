@@ -25,7 +25,7 @@
     
     /* GUI */
     
-    $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='countdown' style='display:none;height: 100px;text-align: center; font-size: 2em; position: absolute; left: 50%; top: 40%; width: 400px; color: #FFF; margin: 0 0 0 -200px;'>Respawning in 10 seconds</div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px -75px;bottom: 175px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;' value='false'>Piss Off Jz !</div></div>");
+    $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='countdown' style='display:none;height: 100px;text-align: center; font-size: 2em; position: absolute; left: 50%; top: 40%; width: 400px; color: #FFF; margin: 0 0 0 -200px;'>Respawning in 10 seconds</div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px -75px;bottom: 225px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;' value='false'>Piss Off Jz !</div></div>");
 
     $("#stayalive").click(function (){
         console.log("Stay Alive clicked");
