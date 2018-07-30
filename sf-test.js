@@ -28,6 +28,9 @@
         console.log("SF clicked");
         
         config.scalingFactor = 10000;
+        Network.sendCommand("spectate", game.myID + "");
+
+        
         
         $('#selectaircraft-1').click(function (){
             config.scalingFactor = osf;
