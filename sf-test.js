@@ -102,7 +102,7 @@
             
             // game.spectatingID is not reliable, as it is null at first when spectating, until we spectate another player      
              console.log("u key pressed");
-            if (config.scalingFactor === 10000;) {
+            if (config.scalingFactor === 10000) {
                 config.scalingFactor = osf;
                 SWAM.ZoomTo(osf);
                 
