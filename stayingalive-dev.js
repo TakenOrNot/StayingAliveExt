@@ -17,7 +17,7 @@ function initStyle () {
     }
 
 
-$("body").append("<div id='#msg-destroyed-gulag'></div>");
+$("body").append("<div id='msg-destroyed-gulag'></div>");
     
 
 
