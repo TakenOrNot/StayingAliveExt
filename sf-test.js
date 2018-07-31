@@ -27,8 +27,14 @@
     $("#sf").click(function (){
         console.log("SF clicked");
         
-        config.scalingFactor = 10000;
-        SWAM.ZoomTo(10000);
+        if (config.scalingFactor === 10000) {
+            config.scalingFactor = osf;
+            SWAM.ZoomTo(osf);
+                
+        } else {
+            config.scalingFactor = 10000;
+            SWAM.ZoomTo(10000);
+        }
         // Network.sendCommand("spectate", game.myID + "");
 
         
