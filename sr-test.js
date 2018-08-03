@@ -5,14 +5,10 @@
     /* INIT */
     function init () {
         console.log('init SR');
-        initEvents ();
+        // initEvents ();
         
     }
 
-    function initEvents () {
-        
-    }
-    
     SWAM.on ( 'gameLoaded', init );
     
     
@@ -132,6 +128,8 @@ function smartrotate(targetangle){
         }
     }
     var rotcheck = setInterval(repeatMe, 10); 
+}
+    
 }
 
     /* REGISTER */
