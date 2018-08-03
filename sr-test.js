@@ -14,7 +14,7 @@
     
     
     
-function smartrotate(targetangle){ 
+function smartrotate(targetangle,donext){ 
     
     rot = Players.getMe().rot;
     
@@ -97,41 +97,54 @@ function smartrotate(targetangle){
     
     
     
-    var precision = 1;
+    
     
     console.log(Date.now() + " rot " + toturn + " " + targetangle )
     
     Network.sendKey(toturn,!0);
     
     function repeatMe(){ 
+        precision = 1;
+        donexttoggle = false;
         rot = Players.getMe().rot;
         console.log(rot);
         if (toturn == 'RIGHT'){
             if((rot > targetangle) && (rot < (targetangle + precision))){
-                
                 clearInterval(rotcheck);
                 Network.sendKey(toturn,!1);
                 $(this).dequeue();
-                console.log("stop rot =" + rot + " > targetangle = " + targetangle + " toturn = " + toturn)
-            
+                console.log("stop rot =" + rot + " targetangle = " + targetangle + " toturn = " + toturn)
+                
+                // call next
+                donextornot = getdonext();
+                if (donextornot == true){
+                    $(this).delay(1000).queue(function() { smartrotate('6')});
+                }
+            }
         } else {
-            if((rot < targetangle) && (rot > (targetangle + precision))){
+            if((rot < targetangle) && (rot > (targetangle - precision))){
+                clearInterval(rotcheck);
+                Network.sendKey(toturn,!1);
+                $(this).dequeue();
+                console.log("stop rot =" + rot + " targetangle = " + targetangle + " toturn = " + toturn)
                 
-                
-                    clearInterval(rotcheck);
-                    Network.sendKey(toturn,!1);
-                    $(this).dequeue();
-                    console.log("stop rot =" + rot + " < targetangle = " + targetangle + " toturn = " + toturn)
-                
+                // call next
+                donextornot = getdonext();
+                if (donextornot == true){
+                    $(this).delay(1000).queue(function() { smartrotate('6')});
+                }
             }
         
         }
     }
     var rotcheck = setInterval(repeatMe, 10); 
 }
-    
-}
 
+function getdonext(){
+
+    donext = window.donext;
+    return donext
+}
     /* REGISTER */
 
     SWAM.registerExtension ({
