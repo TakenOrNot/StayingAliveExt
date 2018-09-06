@@ -127,7 +127,7 @@
 
                             window.setTimeout(function () {
 
-                                console.log("back to spectate");
+                                console.log("try to go back to spectate");
                                 // var specid = $( "#scoreboard .line" ).attr('player-id');
                                 // console.log("spectate force");
                                 // Network.sendCommand("spectate", "'" + specid + "'" + "");
@@ -144,7 +144,7 @@
                                         console.log("try force spec");
                                         Network.spectateForce();
                                         // stayalivefn();
-                                        console.log("show stay alive GUI");
+                                        
                                         // $("#stayalivecontainer").css({display: "block"});
                                         // $("#countdown").css({display: "none"});
                                         checkspecdelay = 10000;
@@ -167,7 +167,7 @@
         if ( event.originalEvent.key === 'v' ) { //note: This is not reliable to know if player is actually spectating
 
             event.stopImmediatePropagation ();
-            
+            console.log("v key pressed");
             // game.spectatingID is not reliable, as it is null at first when spectating, until we spectate another player      
             checkspecdelay = 2000;
             checkspec(checkspecdelay)
@@ -185,7 +185,7 @@
     function checkspec(checkspecdelay){
         window.setTimeout(function () {
                     if( $('#btnFreeSpectator').css('display') == 'block' ) {
-                        console.log("v key pressed, show stay alive GUI");
+                        console.log("show stay alive GUI");
                         $("#stayalivecontainer").css({display: "block"});
                         window.idletimeelapsed = 0;
                         // start counting idle time
