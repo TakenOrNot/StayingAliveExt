@@ -6,7 +6,11 @@
     function init () {
         console.log('init Staying Alive');
         initEvents ();
-        
+        window.stayalive = false;
+        window.idletimecounterbound = false;
+        // cdtime = 60000*9;
+        cdtotaltime = 60000*8;
+        window.idletimeelapsed = 0;
     }
 
     function initEvents () {
@@ -17,11 +21,7 @@
     
     SWAM.on ( 'gameLoaded', init );
     
-    window.stayalive = false;
-    window.idletimecounterbound = false;
-    // cdtime = 60000*9;
-    cdtotaltime = 60000*8;
-    window.idletimeelapsed = 0;
+    
     //window.idletimecounterinterval = setInterval(idletimecounter, 1000);
     
     /* GUI */
