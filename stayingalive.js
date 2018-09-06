@@ -133,7 +133,7 @@
                                 // Network.sendCommand("spectate", "'" + specid + "'" + "");
                                 // Network.sendCommand("spectate", specid + "");
                                 // TODO try to force spectate until it works, in case we got killed when respawned
-                                var forcespecinterval = setInterval(forcespec, 2000);
+                                var forcespecinterval = setInterval(forcespec, 5000);
                                 function forcespec() {
 
                                     if( $('#btnFreeSpectator').css('display') == 'block' ) {
