@@ -178,13 +178,15 @@
                         console.log("v key pressed, show stay alive GUI");
                         $("#stayalivecontainer").css({display: "block"});
                         window.idletimeelapsed = 0;
-                        // TODO : start counting idle time
-                        var idletimecounterinterval = setInterval(idletimecounter, 1000);
-                        // var idletimeelapsed = 0;
-                        function idletimecounter() {
+                        // start counting idle time
+                        if (!idletimecounterinterval){
+                            var idletimecounterinterval = setInterval(idletimecounter, 1000);
+                            // var idletimeelapsed = 0;
+                            function idletimecounter() {
 
-                            window.idletimeelapsed++
-                            $("#countdown").html(window.idletimeelapsed);
+                                window.idletimeelapsed++
+                                $("#countdown").html(window.idletimeelapsed);
+                            }
                         }
                     }
                 },checkspecdelay); 
