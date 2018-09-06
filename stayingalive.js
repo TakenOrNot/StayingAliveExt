@@ -143,10 +143,11 @@
                                     else {
                                         console.log("try force spec");
                                         Network.spectateForce();
-                                        stayalivefn();
+                                        // stayalivefn();
                                         console.log("show stay alive GUI");
-                                        $("#stayalivecontainer").css({display: "block"});
-                                        $("#countdown").css({display: "none"});
+                                        // $("#stayalivecontainer").css({display: "block"});
+                                        // $("#countdown").css({display: "none"});
+                                        
                                     }
                                 }
 
@@ -195,7 +196,7 @@
                                 cddisplay = ((cdtotaltime/1000) - window.idletimeelapsed);
                                 $("#countdown").html(cddisplay);
                                 
-                                if (cddisplay == 0){
+                                if (cddisplay <= 0){
                                     if (stayalive == true) {
                                         stayalivefn();
                                     }
