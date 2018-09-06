@@ -201,10 +201,12 @@
                                 if (cddisplay <= 0){
                                     if (stayalive == true) {
                                         stayalivefn();
+                                        window.idletimeelapsed = 0;
                                     }
                                 }
-                                window.idletimeelapsed++
-                                
+                                else {
+                                    window.idletimeelapsed++
+                                }
                             }
                         }
                     }
