@@ -147,7 +147,8 @@
                                         console.log("show stay alive GUI");
                                         // $("#stayalivecontainer").css({display: "block"});
                                         // $("#countdown").css({display: "none"});
-                                        
+                                        checkspecdelay = 10000;
+                                        checkspec(checkspecdelay)
                                     }
                                 }
 
