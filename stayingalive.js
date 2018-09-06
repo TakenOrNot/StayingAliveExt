@@ -122,10 +122,11 @@
                         //$("#countdown").css({display: "block"});
                         $("#countdown").html('Respawning in 10 seconds');
                         window.setTimeout(function () {
+                            console.log("StayAlive RESPAWN");
                             window.idletimeelapsed = 0;
                             UI.selectAircraft(1)
 
-                            window.setTimeout(function () {
+                            //window.setTimeout(function () {
 
                                 console.log("try to go back to spectate");
                                 // var specid = $( "#scoreboard .line" ).attr('player-id');
@@ -155,7 +156,7 @@
 
 
 
-                            },2000);
+                            //},2000);
                         },10000);    
                     //}
                 //}, cdtime);
