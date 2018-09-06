@@ -34,7 +34,7 @@
         // if (stayalive === ''){
         if (stayalive == false) {
             stayalive = true;
-            stayalivefn();
+            // stayalivefn();
             $("#stayalive").html('Stop Pissing Off Jz');
         }
         else {
@@ -105,19 +105,19 @@
     
     function stayalivefn (){
         if (stayalive == true) {
-            idletimeelapsedms = (idletimeelapsed * 1000);
+             idletimeelapsedms = (idletimeelapsed * 1000);
             console.log("Stay Alive enabled " + cdtotaltime + "-" + idletimeelapsedms + "=" + (cdtotaltime - idletimeelapsedms));
             
             cdtime = (cdtotaltime - idletimeelapsedms);
             //stayalive = 1;
             //function stayalive (){
-                console.log("start respawn countdown " + cdtime);
+                //console.log("start respawn countdown " + cdtime);
                 // window.setTimeout(function () {
                      // if( $('#btnFreeSpectator').css('display') == 'block' ) {
-                var cd = setTimeout(function() {
+                //var cd = setTimeout(function() {
                     
                     console.log("respawn countdown over");
-                    if (stayalive == true){
+                    //if (stayalive == true){
                         console.log("AUTO RESPAWN IN 10sec");
                         //$("#countdown").css({display: "block"});
                         $("#countdown").html('Respawning in 10 seconds');
@@ -155,8 +155,8 @@
 
                             },2000);
                         },10000);    
-                    }
-                }, cdtime);
+                    //}
+                //}, cdtime);
         }
     }
     
@@ -192,9 +192,16 @@
                             // var idletimeelapsed = 0;
                             window.idletimecounterbound = true;
                             function idletimecounter() {
-
+                                cddisplay = ((cdtotaltime/1000) - window.idletimeelapsed);
+                                $("#countdown").html(cddisplay);
+                                
+                                if (cddisplay == 0){
+                                    if (stayalive == true) {
+                                        stayalivefn();
+                                    }
+                                }
                                 window.idletimeelapsed++
-                                $("#countdown").html(window.idletimeelapsed);
+                                
                             }
                         }
                     }
