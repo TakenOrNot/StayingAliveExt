@@ -43,26 +43,31 @@
         
     $('#selectaircraft-1').click(function (){
         stayalive = false;
+        clearInterval(idletimecounterinterval);
         $("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     }); 
     $('#selectaircraft-2').click(function (){
         stayalive = false;
+        clearInterval(idletimecounterinterval);
         $("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     });     
     $('#selectaircraft-3').click(function (){
         stayalive = false;
+        clearInterval(idletimecounterinterval);
         $("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     });
     $('#selectaircraft-4').click(function (){
         stayalive = false;
+        clearInterval(idletimecounterinterval);
         $("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     });
     $('#selectaircraft-5').click(function (){
         stayalive = false;
+        clearInterval(idletimecounterinterval);
         $("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     }); 
@@ -86,6 +91,7 @@
             if (respawnedid == Players.getMe().id){
                 console.log("player respawned, hide Stay Alive GUI");
                 $("#stayalivecontainer").css({display: "none"});
+                clearInterval(idletimecounterinterval);
             }
     });
     
@@ -93,6 +99,7 @@
         console.log("game prep");
         stayalive = false;
         $("#stayalivecontainer").css({display: "none"});
+        clearInterval(idletimecounterinterval);
     });
     
     function stayalivefn (){
