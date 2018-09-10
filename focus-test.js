@@ -43,7 +43,7 @@
         if (focusmode == false) {
             focusmode = true;
             $('body').addClass('focusmode');
-            $("#focus").html('Stop Focus Mode');
+            $("#focus").html('Stop Focus');
         }
         else {
             focusmode = false;
