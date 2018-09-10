@@ -4,9 +4,9 @@
 !function () {
     /* INIT */
     function init () {
-        console.log('init RecTest');
-        initEvents ();
-        initHtml ();
+        console.log('init Focus');
+        initStyle ();
+
     }
 
     function initEvents () {
@@ -17,59 +17,66 @@
     SWAM.on ( 'gameLoaded', init );
     
     
-    function initHtml () {
-        //const headHtml = `<script src='https://webrtc.github.io/samples/src/content/capture/canvas-record/js/main.js'/>`
-        const headHtml = `<script src="https://takenornot.github.io/StayingAliveExt/lib/CCapture.all.min.js"></script>`
-        $('head').append ( headHtml );
+    function initStyle () {
+
+        const focusStyle = `
+                    <style id='optionnalFbStyle'>
+                        .focusmode > #logosmall {opacity:0;}
+                        .focusmode > #scorebig {opacity:0;}
+                        .focusmode > #roomnamecontainer {opacity:0;}
+                        .focusmode > #scoreboard {opacity:0;}
+                        .focusmode > #sidebar {opacity:0;}
+                        .focusmode > #menu {opacity:0;}
+                        .focusmode > #chatbox {opacity:0;}
+
+                    </style>
+                `
+        $('head').append ( focusStyle );
     }
     
     /* GUI */
     
-    $('body').append ("<div id='reccontainer' style='display: none;'><div id='rec' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px 125px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Rec</div></div>");
+    $('body').append ("<div id='focuscontainer' style='display: none;'><div id='focus' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px 125px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Focus Mode</div></div>");
 
-    $("#rec").click(function (){
-        var capturer = new CCapture( { format: 'webm' } );
-        capturer.start();
-        $(this).click(function (){
-            capturer.stop();
-            capturer.save();
-        });
+    $("#focus").click(function (){
+        if (focusmode == false) {
+            focusmode = true;
+            $('body').addClass('focusmode');
+            $("#focus").html('Stop Focus Mode');
+        }
+        else {
+            focusmode = false;
+            $('body').removeClass('focusmode');
+            $("#focus").html('Focus Mode');
+        }
     });
     
-    
-    
-   
-         //Graphics.render(
-            //requestAnimationFrame(render);
-            // rendering stuff ...
-            //capturer.capture( canvas );
-        //)
-    
+
         
         
         $('#selectaircraft-1').click(function (){
 
-            $("#reccontainer").css({display: "none"});
+            $("#focuscontainer").css({display: "none"});
 
         }); 
         $('#selectaircraft-2').click(function (){
 
-            $("#reccontainer").css({display: "none"});
+            $("#focuscontainer").css({display: "none"});
 
         });     
         $('#selectaircraft-3').click(function (){
 
-            $("#reccontainer").css({display: "none"});
+            $("#focuscontainer").css({display: "none"});
 
         });
         $('#selectaircraft-4').click(function (){
 
-            $("#reccontainer").css({display: "none"});
+            $("#focuscontainer").css({display: "none"});
 
         });
         $('#selectaircraft-5').click(function (){
 
-            $("#reccontainer").css({display: "none"});
+            $("#focuscontainer").css({display: "none"});
 
         }); 
 
@@ -79,14 +86,14 @@
             respawnedid = data['id'];
             if (respawnedid == Players.getMe().id){
  
-                $("#reccontainer").css({display: "none"});
+                $("#focuscontainer").css({display: "none"});
   
             }
     });
     
     SWAM.on ( 'gamePrep', function (){
 
-        $("#reccontainer").css({display: "none"});
+        $("#focuscontainer").css({display: "none"});
     });
     
     
@@ -115,8 +122,8 @@
     function checkspec(checkspecdelay){
         window.setTimeout(function () {
                     if( $('#btnFreeSpectator').css('display') == 'block' ) {
-                        console.log("v key pressed, show rec");
-                        $("#reccontainer").css({display: "block"});
+                        console.log("v key pressed, show focus");
+                        $("#focuscontainer").css({display: "block"});
                         
                     }
                 },checkspecdelay); 
@@ -125,8 +132,8 @@
     /* REGISTER */
 
     SWAM.registerExtension ({
-        name: 'Rec',
-        id: 'Rec',
+        name: 'Focus',
+        id: 'Focus',
         description: '',
         version: '1.0.0',
         author: 'xplay'
