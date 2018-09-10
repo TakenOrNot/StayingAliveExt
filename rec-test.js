@@ -30,7 +30,7 @@
     $("#rec").click(function (){
         var capturer = new CCapture( { format: 'webm' } );
         capturer.start();
-    }
+    });
     
     
     
