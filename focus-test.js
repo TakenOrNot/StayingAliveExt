@@ -37,7 +37,7 @@
     
     /* GUI */
     
-    $('body').append ("<div id='focuscontainer' style='display: block;'><div id='focus' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px 125px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Focus Mode</div></div>");
+    $('body').append ("<div id='focuscontainer' style='display: block;'><div id='focus' style='display: block; position: absolute; right: 150px; margin: 0px 0px 0px 125px; top: 14px; width: 80px; height: 15px; padding: 5px; background: rgba(0, 0, 0, 0.5); border-radius: 5px; text-align: center; color: #EEE; font-size: 10px; cursor: pointer;'>Focus Mode</div></div>");
 
     $("#focus").click(function (){
         if (focusmode == false) {
@@ -53,33 +53,6 @@
     });
     
 
-        
-        
-        $('#selectaircraft-1').click(function (){
-
-            $("#focuscontainer").css({display: "none"});
-
-        }); 
-        $('#selectaircraft-2').click(function (){
-
-            $("#focuscontainer").css({display: "none"});
-
-        });     
-        $('#selectaircraft-3').click(function (){
-
-            $("#focuscontainer").css({display: "none"});
-
-        });
-        $('#selectaircraft-4').click(function (){
-
-            $("#focuscontainer").css({display: "none"});
-
-        });
-        $('#selectaircraft-5').click(function (){
-
-            $("#focuscontainer").css({display: "none"});
-
-        }); 
   
     
     function onKeydown ( event ) {
