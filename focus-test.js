@@ -20,7 +20,7 @@
     function initStyle () {
 
         const focusStyle = `
-                    <style id='optionnalFbStyle'>
+                    <style id='focusmodeStyle'>
                         .focusmode > #logosmall {opacity:0;}
                         .focusmode > #scorebig {opacity:0;}
                         .focusmode > #roomnamecontainer {opacity:0;}
