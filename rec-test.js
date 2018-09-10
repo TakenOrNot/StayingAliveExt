@@ -17,46 +17,32 @@
     SWAM.on ( 'gameLoaded', init );
     
     
-    
-    
-    /* GUI */
-    
-    $('body').append ("<div id='reccontainer' style='display: none;'><video id='recorded' playsinline loop ></video><div><button id='record' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px 125px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Start Recording</button><button id='play' disabled>Play</button><button id='download' disabled>Download</button></div></div>");
-
     function initHtml () {
-        const headHtml = `<script src='https://webrtc.github.io/samples/src/content/capture/canvas-record/js/main.js'/>`
+        //const headHtml = `<script src='https://webrtc.github.io/samples/src/content/capture/canvas-record/js/main.js'/>`
+        const headHtml = `<script src="CCapture.all.min.js"></script>`
         $('head').append ( headHtml );
     }
     
+    /* GUI */
+    
+    $('body').append ("<div id='reccontainer' style='display: none;'><div id='rec' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px 125px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Rec</div></div>");
+
+    $("#rec").click(function (){
+        var capturer = new CCapture( { format: 'webm' } );
+        capturer.start();
+    }
+    
+    
+    
    
-        function main() {
-            var c = document.querySelector("canvas");
-
-            //c = WebGLDebugUtils.makeLostContextSimulatingCanvas(c);
-            // tell the simulator when to lose context.
-            //c.loseContextInNCalls(15);
-
-            c.addEventListener('webglcontextlost', handleContextLost, false);
-            c.addEventListener('webglcontextrestored', handleContextRestored, false);
-        }
+        Graphics.render(
+                    requestAnimationFrame(render);
+        // rendering stuff ...
+        capturer.capture( canvas );
+        )
     
-        function handleContextLost(e) {
-            log("handle context lost");
-            e.preventDefault();
-            clearLoadingImages();
-        }
-
-        function handleContextRestored() {
-            log("handle context restored");
-            init();
-        }
     
-        function clearLoadingImages() {
-            for (var ii = 0; ii < g_loadingImages.length; ++ii) {
-                g_loadingImages[ii].onload = undefined;
-            }
-            g_loadingImages = [];
-        }
+        
         
         $('#selectaircraft-1').click(function (){
             config.scalingFactor = osf;
