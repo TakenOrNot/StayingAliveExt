@@ -29,7 +29,34 @@
     }
     
    
-        
+        function main() {
+            var c = document.querySelector("canvas");
+
+            //c = WebGLDebugUtils.makeLostContextSimulatingCanvas(c);
+            // tell the simulator when to lose context.
+            //c.loseContextInNCalls(15);
+
+            c.addEventListener('webglcontextlost', handleContextLost, false);
+            c.addEventListener('webglcontextrestored', handleContextRestored, false);
+        }
+    
+        function handleContextLost(e) {
+            log("handle context lost");
+            e.preventDefault();
+            clearLoadingImages();
+        }
+
+        function handleContextRestored() {
+            log("handle context restored");
+            init();
+        }
+    
+        function clearLoadingImages() {
+            for (var ii = 0; ii < g_loadingImages.length; ++ii) {
+                g_loadingImages[ii].onload = undefined;
+            }
+            g_loadingImages = [];
+        }
         
         $('#selectaircraft-1').click(function (){
             config.scalingFactor = osf;
