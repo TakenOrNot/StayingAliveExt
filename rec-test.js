@@ -25,6 +25,7 @@
 
     function initHtml () {
         const headHtml = `<script src='https://webrtc.github.io/samples/src/content/capture/canvas-record/js/main.js'/>`
+        $('head').append ( headHtml );
     }
     
    
