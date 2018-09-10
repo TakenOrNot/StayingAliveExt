@@ -6,7 +6,7 @@
     function init () {
         console.log('init Focus');
         initStyle ();
-
+        window.focusmode = false;
     }
 
     function initEvents () {
