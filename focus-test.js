@@ -28,6 +28,7 @@
                         .focusmode > #sidebar {opacity:0;}
                         .focusmode > #menu {opacity:0;}
                         .focusmode > #chatbox {opacity:0;}
+                        .focusmode > #settings {opacity:0;}
 
                     </style>
                 `
@@ -36,7 +37,7 @@
     
     /* GUI */
     
-    $('body').append ("<div id='focuscontainer' style='display: none;'><div id='focus' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px 125px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Focus Mode</div></div>");
+    $('body').append ("<div id='focuscontainer' style='display: block;'><div id='focus' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px 125px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Focus Mode</div></div>");
 
     $("#focus").click(function (){
         if (focusmode == false) {
@@ -79,24 +80,7 @@
             $("#focuscontainer").css({display: "none"});
 
         }); 
-
-        
-    
-    SWAM.on("playerRespawned", function(data){
-            respawnedid = data['id'];
-            if (respawnedid == Players.getMe().id){
- 
-                $("#focuscontainer").css({display: "none"});
   
-            }
-    });
-    
-    SWAM.on ( 'gamePrep', function (){
-
-        $("#focuscontainer").css({display: "none"});
-    });
-    
-    
     
     function onKeydown ( event ) {
         
@@ -105,8 +89,8 @@
             event.stopImmediatePropagation ();
             
             // game.spectatingID is not reliable, as it is null at first when spectating, until we spectate another player      
-            checkspecdelay = 2000;
-            checkspec(checkspecdelay)
+            //checkspecdelay = 2000;
+            //checkspec(checkspecdelay)
                
             
         }
@@ -114,21 +98,7 @@
         
     }
     
-    function onMatchStarted () {
-        checkspecdelay = 10000;
-        checkspec(checkspecdelay)
-    }
     
-    function checkspec(checkspecdelay){
-        window.setTimeout(function () {
-                    if( $('#btnFreeSpectator').css('display') == 'block' ) {
-                        console.log("v key pressed, show focus");
-                        $("#focuscontainer").css({display: "block"});
-                        
-                    }
-                },checkspecdelay); 
-    }
-
     /* REGISTER */
 
     SWAM.registerExtension ({
