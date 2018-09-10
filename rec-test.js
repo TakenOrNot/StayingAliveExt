@@ -48,32 +48,27 @@
         
         
         $('#selectaircraft-1').click(function (){
-            config.scalingFactor = osf;
-            SWAM.ZoomTo(osf);
+
             $("#reccontainer").css({display: "none"});
 
         }); 
         $('#selectaircraft-2').click(function (){
-            config.scalingFactor = osf;
-            SWAM.ZoomTo(osf);
+
             $("#reccontainer").css({display: "none"});
 
         });     
         $('#selectaircraft-3').click(function (){
-            config.scalingFactor = osf;
-            SWAM.ZoomTo(osf);
+
             $("#reccontainer").css({display: "none"});
 
         });
         $('#selectaircraft-4').click(function (){
-            config.scalingFactor = osf;
-            SWAM.ZoomTo(osf);
+
             $("#reccontainer").css({display: "none"});
 
         });
         $('#selectaircraft-5').click(function (){
-            config.scalingFactor = osf;
-            SWAM.ZoomTo(osf);
+
             $("#reccontainer").css({display: "none"});
 
         }); 
