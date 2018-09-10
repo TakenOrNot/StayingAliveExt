@@ -30,6 +30,10 @@
     $("#rec").click(function (){
         var capturer = new CCapture( { format: 'webm' } );
         capturer.start();
+        $(this).click(function (){
+            capturer.stop();
+            capturer.save();
+        });
     });
     
     
