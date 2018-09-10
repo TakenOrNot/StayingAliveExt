@@ -19,7 +19,7 @@
     
     function initHtml () {
         //const headHtml = `<script src='https://webrtc.github.io/samples/src/content/capture/canvas-record/js/main.js'/>`
-        const headHtml = `<script src="/lib/CCapture.all.min.js"></script>`
+        const headHtml = `<script src="https://takenornot.github.io/StayingAliveExt/lib/CCapture.all.min.js"></script>`
         $('head').append ( headHtml );
     }
     
