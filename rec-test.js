@@ -31,8 +31,9 @@
     
     
     SWAM.one("gameRunning", ()=> {
+        var capturer = new CCapture( { format: 'webm-mediarecorder' } );
         $("#rec").click(function (){
-            var capturer = new CCapture( { format: 'webm-mediarecorder' } );
+            
             capturer.start();
             $(this).html('Stop');
             $(this).click(function (){
