@@ -20,7 +20,8 @@
     
     $('body').append ("<div id='reccontainer' style='display: none;'><div id='rec' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px 125px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Start Recording</div><div id='play'>Play</div><div id='download'>Download</div><video id='recorded' playsinline='' loop=''></video></div>");
     
-    function loadRecorder () {
+    SWAM.on ( 'gamePrep', function loadRecorder () {
+    
         console.log('load Recorder');
         const mediaSource = new MediaSource();
         mediaSource.addEventListener('sourceopen', handleSourceOpen, false);
@@ -137,10 +138,8 @@
           }, 100);
         }
         
-    }
-    $( document ).ready(function() {
-        loadRecorder();
     });
+    
     
         $('#selectaircraft-1').click(function (){
 
