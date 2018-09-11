@@ -27,7 +27,17 @@
     
     $('body').append ("<div id='reccontainer' style='display: none;'><div id='rec' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px 125px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Rec</div></div>");
 
-    
+    var capturer = '';
+        $("#rec").click(function (){
+            var capturer = new CCapture( { format: 'webm-mediarecorder' } );
+            capturer.start();
+            $(this).html('Stop');
+            $(this).click(function (){
+                capturer.stop();
+                capturer.save();
+                $(this).html('Rec');
+            });
+        });
     
     
     SWAM.one("gameRunning", ()=> {
