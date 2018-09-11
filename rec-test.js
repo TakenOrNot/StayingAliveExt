@@ -46,10 +46,10 @@
             
             
             /* Record Video */
-            if( capturer ) capturer.capture( renderer.view );
+            if( capturer ) capturer.capture(canvas);
             
         });
-        
+        ticker.start();
     });
    
          //Graphics.render(
