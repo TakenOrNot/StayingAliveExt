@@ -50,18 +50,14 @@
         //kapturerelay();   
         requestAnimationFrame(update);
         //var updateinterval = setInterval(update, 41);  
-        // if( capturer ) capturer.capture( Graphics.renderer.view );
-        if( capturer ) {
-            setTimeout(function(){
-                capturer.capture( Graphics.renderer.view );
-            }, 41);
-            
-                        
-        }
+        //if( capturer ) capturer.capture( Graphics.renderer.view );
+        
       }
       update();
     
-    
+       setTimeout(function(){
+                if( capturer ) capturer.capture( Graphics.renderer.view );
+            }, 41);
     
 	// Register
 	SWAM.registerExtension({
