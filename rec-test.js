@@ -18,7 +18,7 @@
           display: false,
           framerate: parseInt(options.framerate),
           motionBlurFrames: 0,
-          quality: 100,
+          quality: 50,
           format: options.format,
           workersPath: 'dist/src/',
           timeLimit: 0,
