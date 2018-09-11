@@ -14,7 +14,7 @@
     // maybe try to set frameLimit
       function initRecording(){
         capturer = new CCapture( {
-          verbose: true,
+          //verbose: true,
           display: false,
           //framerate: parseInt(options.framerate),
           motionBlurFrames: 0,
@@ -22,7 +22,7 @@
           format: options.format,
           workersPath: 'dist/src/',
           timeLimit: 0,
-          frameLimit: 0,
+          frameLimit: 25,
           autoSaveTime: 0,
         } );
       }
