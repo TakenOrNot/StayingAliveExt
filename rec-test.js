@@ -40,7 +40,7 @@
  
       SWAM.video = {
           startRecording: startRecording,
-          stopRecording: startRecording
+          stopRecording: stopRecording
       };
  
       function update(){
