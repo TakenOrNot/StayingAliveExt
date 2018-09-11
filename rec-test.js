@@ -36,7 +36,7 @@
         capturer.stop();
         capturer.save();
       }
-
+ 
 
       SWAM.video = {
           startRecording: startRecording,
