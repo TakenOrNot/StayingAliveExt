@@ -30,7 +30,7 @@
         //update();
         initRecording();
         capturer.start();
-        var updateinterval = setInterval(update, 41);
+        
       }
       function stopRecording(){
         //cancelAnimationFrame(update);
@@ -47,9 +47,9 @@
         
       function update(){
         //Loop this function
-
+        clearInterval(updateinterval);    
         //requestAnimationFrame(update);
-          
+        var updateinterval = setInterval(update, 41);  
         if( capturer ) capturer.capture( Graphics.renderer.view );
       }
       update();
