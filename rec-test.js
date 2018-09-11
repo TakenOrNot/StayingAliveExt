@@ -33,7 +33,7 @@
         const video = document.querySelector('video');
 
         //const recordButton = $('#rec');
-        recordButton = document.querySelector('#rec');
+        const recordButton = document.querySelector('#rec');
         //const playButton = $('#play');
         const playButton = document.querySelector('#play');
         //const downloadButton = $('#download');
