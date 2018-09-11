@@ -1,17 +1,17 @@
-//"use strict";
- 
+"use strict";
+
 !function() {
- 
+
     let capturer = null;
     let options = {
         /* Recording options */
-        format: 'webm-mediarecorder',
-        framerate: '30FPS',
+        format: /*'webm', //*/'webm-mediarecorder',
+        //framerate: '30FPS',
         start: function(){ startRecording(); },
         stop: function(){ stopRecording(); }
       };
- 
- 
+
+
       function initRecording(){
         capturer = new CCapture( {
           verbose: true,
@@ -27,40 +27,48 @@
         } );
       }
       function startRecording(){
-        update();
+        //update();
         initRecording();
         capturer.start();
       }
       function stopRecording(){
-        cancelAnimationFrame(update);
+        //cancelAnimationFrame(update);
         capturer.stop();
         capturer.save();
       }
- 
- 
+
+
       SWAM.video = {
           startRecording: startRecording,
           stopRecording: stopRecording
       };
- 
+
       function update(){
-        /* Loop this function */
+        //Loop this function
+
         requestAnimationFrame(update);
         if( capturer ) capturer.capture( Graphics.renderer.view );
       }
       update();
- 
- 
-    // Register
-    SWAM.registerExtension({
-        name: 'Video Recorder for StarMash',
-        id: 'SWAM.Video',
-        description: 'Records video of the game.',
-        author: 'Bombita',
-        version: '0.1',
+/*
+      let Graphics_render = Graphics.render;
+      Graphics.render = function()
+      {
+            if( capturer ) capturer.capture( Graphics.renderer.view );
+          return Graphics_update();
+      }*/
+
+
+	// Register
+	SWAM.registerExtension({
+		name: 'Video Recorder for StarMash',
+		id: 'SWAM.Video',
+		description: 'Records video of the game.',
+		author: 'Bombita',
+		version: '0.1',
         //settingsProvider: createSettingsProvider(),
         dependencies: [
             "https://cdn.rawgit.com/spite/ccapture.js/0bb38d6f/build/CCapture.all.min.js"
         ]        
-    });
+	});
 }();
