@@ -31,27 +31,12 @@
     
     
     SWAM.one("gameRunning", ()=> {
-        var capturer = '';
-        $("#rec").click(function (){
-            var capturer = new CCapture( { format: 'webm-mediarecorder' } );
-            capturer.start();
-            $(this).html('Stop');
-            $(this).click(function (){
-                capturer.stop();
-                capturer.save();
-                $(this).html('Rec');
-            });
-        });
-        
-        let ticker =  new PIXI.ticker.Ticker();
-        ticker.add(()=>{
-            requestAnimationFrame(ticker);
-            amcanvas = $('canvas');
-            /* Record Video */
-            if( capturer ) capturer.capture(amcanvas);
-            
-        });
-        ticker.start();
+        function update(){
+            /* Loop this function */
+            requestAnimationFrame(update);
+            if( capturer ) capturer.capture( renderer.view );
+          }
+        update();
     });
    
          //Graphics.render(
