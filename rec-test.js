@@ -16,7 +16,7 @@
         capturer = new CCapture( {
           verbose: true,
           display: false,
-          framerate: parseInt(options.framerate),
+          //framerate: parseInt(options.framerate),
           motionBlurFrames: 0,
           quality: 50,
           format: options.format,
