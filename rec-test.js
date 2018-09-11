@@ -11,7 +11,7 @@
         stop: function(){ stopRecording(); }
       };
 
-
+    // maybe try to set frameLimit
       function initRecording(){
         capturer = new CCapture( {
           verbose: true,
