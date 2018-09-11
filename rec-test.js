@@ -224,7 +224,7 @@
 		name: 'Video Recorder for StarMash',
 		id: 'SWAM.Video',
 		description: 'Records video of the game.',
-		author: 'Bombita',
+		author: 'xplay, thanks to Bombita and Yutru',
 		version: '0.1',
         //settingsProvider: createSettingsProvider(),
         dependencies: [
