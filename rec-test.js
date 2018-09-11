@@ -50,14 +50,6 @@
         if( capturer ) capturer.capture( Graphics.renderer.view );
       }
       update();
-/*
-      let Graphics_render = Graphics.render;
-      Graphics.render = function()
-      {
-            if( capturer ) capturer.capture( Graphics.renderer.view );
-          return Graphics_update();
-      }*/
-
 
 	// Register
 	SWAM.registerExtension({
