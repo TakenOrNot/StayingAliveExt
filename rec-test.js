@@ -43,8 +43,8 @@
 
 
 
-        const stream = canvas.captureStream(); // frames per second
-        console.log('Started stream capture from canvas element: ', stream);
+        //const stream = canvas.captureStream(); // frames per second
+        //console.log('Started stream capture from canvas element: ', stream);
 
         function handleSourceOpen(event) {
           console.log('MediaSource opened');
@@ -66,6 +66,8 @@
 
         function toggleRecording() {
           if (recordButton.textContent === 'Start Recording') {
+            const stream = canvas.captureStream(); // frames per second
+            console.log('Started stream capture from canvas element: ', stream);
             startRecording();
           } else {
             stopRecording();
