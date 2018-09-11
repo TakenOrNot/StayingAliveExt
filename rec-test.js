@@ -55,7 +55,9 @@
       update();
     
     function kapturerelay(){
-        setTimeout(kapture, 41); 
+        clearTimeout(updatekapture); 
+        var updatekapture = setTimeout(kapture, 41); 
+        
         
     }
     function kapture(){
