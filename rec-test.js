@@ -45,7 +45,7 @@
         
         let ticker =  new PIXI.ticker.Ticker();
         ticker.add(()=>{
-            
+            requestAnimationFrame(render);
             amcanvas = $('canvas');
             /* Record Video */
             if( capturer ) capturer.capture(amcanvas);
