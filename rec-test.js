@@ -18,7 +18,7 @@
     
     
     
-    $('body').append ("<div id='reccontainer' style='position: absolute;left: 50%;margin: 0px 0px 0px 125px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;'> <button id='rec' style=''>Start Recording</button><button id='play'>Play</button><button id='download'>Download</button><video id='recorded' playsinline='' loop=''></video></div>");
+    $('body').append ("<div id='reccontainer' style='position: absolute; margin: 0px 0px 0px -125px; bottom: 4px;width: 250px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;display:none;'> <button id='rec' style=''>Start Recording</button><button id='play'>Play</button><button id='download'>Download</button><video id='recorded' playsinline='' loop='' style='width: 100%;top: -300%;height: 300%;'></video></div>");
     
     SWAM.on ( 'gamePrep', function loadRecorder () {
     
