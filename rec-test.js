@@ -136,8 +136,9 @@
         }
         
     }
-    
-    SWAM.on ( 'gameRunning', loadRecorder );
+    $( document ).ready(function() {
+        loadRecorder();
+    });
     
         $('#selectaircraft-1').click(function (){
 
