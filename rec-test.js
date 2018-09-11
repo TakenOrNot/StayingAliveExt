@@ -30,11 +30,13 @@
         //update();
         initRecording();
         capturer.start();
+        var updateinterval = setInterval(update, 41);
       }
       function stopRecording(){
         //cancelAnimationFrame(update);
         capturer.stop();
         capturer.save();
+        clearInterval(updateinterval);  
       }
  
 
@@ -42,15 +44,18 @@
           startRecording: startRecording,
           stopRecording: stopRecording
       };
-
+        
       function update(){
         //Loop this function
 
-        requestAnimationFrame(update);
+        //requestAnimationFrame(update);
+          
         if( capturer ) capturer.capture( Graphics.renderer.view );
       }
       update();
-
+    
+    
+    
 	// Register
 	SWAM.registerExtension({
 		name: 'Video Recorder for StarMash',
