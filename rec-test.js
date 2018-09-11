@@ -29,12 +29,15 @@
         let recordedBlobs;
         let sourceBuffer;
 
-        const canvas = $('canvas');
-        const video = $('video');
+        const canvas = document.querySelector('canvas');
+        const video = document.querySelector('video');
 
-        const recordButton = $('#rec');
-        const playButton = $('#play');
-        const downloadButton = $('#download');
+        //const recordButton = $('#rec');
+        recordButton = document.querySelector('#rec');
+        //const playButton = $('#play');
+        const playButton = document.querySelector('#play');
+        //const downloadButton = $('#download');
+        const downloadButton = document.querySelector('#download');
         recordButton.onclick = toggleRecording;
         playButton.onclick = play;
         downloadButton.onclick = download;
