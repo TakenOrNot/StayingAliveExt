@@ -36,7 +36,7 @@
         //cancelAnimationFrame(update);
         capturer.stop();
         capturer.save();
-        clearInterval(updateinterval);  
+        //clearInterval(updateinterval);  
       }
  
 
@@ -47,14 +47,21 @@
         
       function update(){
         //Loop this function
-        clearInterval(updateinterval);    
-        //requestAnimationFrame(update);
-        var updateinterval = setInterval(update, 41);  
-        if( capturer ) capturer.capture( Graphics.renderer.view );
+        kapturerelay();   
+        requestAnimationFrame(update);
+        //var updateinterval = setInterval(update, 41);  
+        // if( capturer ) capturer.capture( Graphics.renderer.view );
       }
       update();
     
-    
+    function kapturerelay(){
+        setTimeout(kapture, 41); 
+        
+    }
+    function kapture(){
+        
+        if( capturer ) capturer.capture( Graphics.renderer.view );
+    }
     
 	// Register
 	SWAM.registerExtension({
