@@ -47,23 +47,21 @@
         
       function update(){
         //Loop this function
-        kapturerelay();   
+        //kapturerelay();   
         requestAnimationFrame(update);
         //var updateinterval = setInterval(update, 41);  
         // if( capturer ) capturer.capture( Graphics.renderer.view );
+        if( capturer ) {
+            setTimeout(function(){
+                capturer.capture( Graphics.renderer.view );
+            }, 41);
+            
+                        
+        }
       }
       update();
     
-    function kapturerelay(){
-        clearTimeout(updatekapture); 
-        var updatekapture = setTimeout(kapture, 41); 
-        
-        
-    }
-    function kapture(){
-        
-        if( capturer ) capturer.capture( Graphics.renderer.view );
-    }
+    
     
 	// Register
 	SWAM.registerExtension({
