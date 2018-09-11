@@ -18,7 +18,7 @@
     
     
     
-    $('body').append ("<div id='reccontainer' style='display: none;'><div id='rec' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px 125px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Start Recording</div><div id='play'>Play</div><div id='download'>Download</div><video id='recorded' playsinline='' loop=''></video></div>");
+    $('body').append ("<div id='reccontainer' style='position: absolute;left: 50%;margin: 0px 0px 0px 125px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;'> <button id='rec' style=''>Start Recording</button><button id='play'>Play</button><button id='download'>Download</button><video id='recorded' playsinline='' loop=''></video></div>");
     
     SWAM.on ( 'gamePrep', function loadRecorder () {
     
@@ -33,11 +33,11 @@
         const video = document.querySelector('video');
 
         //const recordButton = $('#rec');
-        const recordButton = document.querySelector('#rec');
+        const recordButton = document.querySelector('button#rec');
         //const playButton = $('#play');
-        const playButton = document.querySelector('#play');
+        const playButton = document.querySelector('button#play');
         //const downloadButton = $('#download');
-        const downloadButton = document.querySelector('#download');
+        const downloadButton = document.querySelector('button#download');
         recordButton.onclick = toggleRecording;
         playButton.onclick = play;
         downloadButton.onclick = download;
@@ -47,8 +47,8 @@
 
 
 
-        //const stream = canvas.captureStream(); // frames per second
-        //console.log('Started stream capture from canvas element: ', stream);
+        const stream = canvas.captureStream(); // frames per second
+        console.log('Started stream capture from canvas element: ', stream);
 
         function handleSourceOpen(event) {
           console.log('MediaSource opened');
@@ -70,8 +70,8 @@
 
         function toggleRecording() {
           if (recordButton.textContent === 'Start Recording') {
-            const stream = canvas.captureStream(); // frames per second
-            console.log('Started stream capture from canvas element: ', stream);
+            //const stream = canvas.captureStream(); // frames per second
+            //console.log('Started stream capture from canvas element: ', stream);
             startRecording();
           } else {
             stopRecording();
