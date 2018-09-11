@@ -22,7 +22,7 @@
           format: options.format,
           workersPath: 'dist/src/',
           timeLimit: 0,
-          frameLimit: 25,
+          //frameLimit: 0,
           autoSaveTime: 0,
         } );
       }
