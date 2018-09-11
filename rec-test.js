@@ -5,7 +5,7 @@
     let capturer = null;
     let options = {
         /* Recording options */
-        format: 'webm',
+        format: 'webm-mediarecorder',
         framerate: '30FPS',
         start: function(){ startRecording(); },
         stop: function(){ stopRecording(); }
