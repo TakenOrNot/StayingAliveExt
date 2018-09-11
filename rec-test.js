@@ -46,9 +46,9 @@
         let ticker =  new PIXI.ticker.Ticker();
         ticker.add(()=>{
             
-            
+            amcanvas = $('canvas');
             /* Record Video */
-            if( capturer ) capturer.capture(canvas);
+            if( capturer ) capturer.capture(amcanvas);
             
         });
         ticker.start();
