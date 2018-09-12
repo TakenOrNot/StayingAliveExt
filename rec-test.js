@@ -5,6 +5,7 @@
     function init () {
         console.log('init RecTest');
         initEvents ();
+        initStyle ();
         //initHtml ();
         //initRecorder ();
         
@@ -21,7 +22,24 @@
     
     
     
-    $('body').append ("<div id='reccontainer' style='position: absolute; margin: 0px 0px 0px 55%; bottom: 4px;width: 250px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 0px 0px 5px 5px;text-align: center;color: #EEE;font-size: 15px;display:none;'> <button id='rec' style=''>Start Recording</button><button id='play'>Play</button><button id='download'>Download</button><video id='recorded' playsinline='' loop='' style='width: 100%;top: -300%; left: 0%; height: 300%;position: absolute;'></video></div>");
+    $('body').append ("<div id='reccontainer' style='position: absolute; margin: 0px 0px 0px 55%; bottom: 4px;width: 250px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 0px 0px 5px 5px;text-align: center;color: #EEE;font-size: 15px;display:none;'> <button id='rec' style=''>Start Recording</button><button id='play'>Play</button><button id='download'>Download</button><video id='recorded' playsinline='' loop='' style='width: 100%;top: -300%; left: 0%; height: 300%;position: absolute;'></video></div><div id='recindicator' style='position: absolute; top: 20px; right: 250px; width: 15px; display: none; -webkit-animation: recblink .5s ease-in-out alternate; background: radial-gradient(ellipse closest-side, rgba(255, 0, 0, 0.75) 33%, rgba(255,17,119,0) 100%); opacity: 0; animation-iteration-count:infinite;'>&nbsp;</div>");
+    
+    function initStyle () {
+
+        const recStyle = `
+                    <style id='recStyle'>
+                        @-webkit-keyframes recblink {
+                          from {
+                            opacity: 0;
+                          }
+                          to {
+                            opacity: 1;
+                          }
+                        }
+                    </style>
+                `
+        $('head').append ( recStyle );
+    }
     
     SWAM.on ( 'gamePrep', function loadRecorder () {
     
@@ -79,11 +97,13 @@
         function toggleRecording() {
           if (recordButton.textContent === 'Start Recording') {
             startRecording();
+            $('#recindicator').css({display: "block"});
           } else {
             stopRecording();
             recordButton.textContent = 'Start Recording';
             playButton.disabled = false;
             downloadButton.disabled = false;
+            $('#recindicator').css({display: "none"});
           }
         }
 
