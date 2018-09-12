@@ -231,8 +231,8 @@
 		author: 'xplay, thanks to Bombita and Yutru',
 		version: '0.1',
         //settingsProvider: createSettingsProvider(),
-        dependencies: [
-            "https://cdn.rawgit.com/spite/ccapture.js/0bb38d6f/build/CCapture.all.min.js"
-        ]        
+        //dependencies: [
+            //"https://cdn.rawgit.com/spite/ccapture.js/0bb38d6f/build/CCapture.all.min.js"
+        //]        
 	});
 }();
