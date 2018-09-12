@@ -179,7 +179,7 @@
         
     
     SWAM.on("playerRespawned", function(data){
-            respawnedid = data['id'];
+            let respawnedid = data['id'];
             if (respawnedid == Players.getMe().id){
  
                 $("#reccontainer").css({display: "none"});
