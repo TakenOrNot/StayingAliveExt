@@ -7,6 +7,7 @@
         initEvents ();
         //initHtml ();
         //initRecorder ();
+        var checkspecdelay = 2000;
     }
 
     function initEvents () {
@@ -18,11 +19,16 @@
     
     
     
-    $('body').append ("<div id='reccontainer' style='position: absolute; margin: 0px 0px 0px 55%; bottom: 4px;width: 250px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;display:none;'> <button id='rec' style=''>Start Recording</button><button id='play'>Play</button><button id='download'>Download</button><video id='recorded' playsinline='' loop='' style='width: 100%;top: -300%;height: 300%;position: absolute;'></video></div>");
+    $('body').append ("<div id='reccontainer' style='position: absolute; margin: 0px 0px 0px 55%; bottom: 4px;width: 250px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 0px 0px 5px 5px;text-align: center;color: #EEE;font-size: 15px;display:none;'> <button id='rec' style=''>Start Recording</button><button id='play'>Play</button><button id='download'>Download</button><video id='recorded' playsinline='' loop='' style='width: 100%;top: -300%; left: 0%; height: 300%;position: absolute;'></video></div>");
     
     SWAM.on ( 'gamePrep', function loadRecorder () {
     
         console.log('load Recorder');
+        
+        // Taken from 
+        // https://webrtc.github.io/samples/src/content/capture/canvas-video/
+        // https://github.com/webrtc/samples/tree/gh-pages/src/content/capture/canvas-video
+        
         const mediaSource = new MediaSource();
         mediaSource.addEventListener('sourceopen', handleSourceOpen, false);
         let mediaRecorder;
@@ -70,8 +76,6 @@
 
         function toggleRecording() {
           if (recordButton.textContent === 'Start Recording') {
-            //const stream = canvas.captureStream(); // frames per second
-            //console.log('Started stream capture from canvas element: ', stream);
             startRecording();
           } else {
             stopRecording();
