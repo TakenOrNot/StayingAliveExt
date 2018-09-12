@@ -7,13 +7,15 @@
         initEvents ();
         //initHtml ();
         //initRecorder ();
-        checkspecdelay = 2000;
+        
     }
 
     function initEvents () {
         SWAM.on ( 'keydown', onKeydown );
 
     }
+    
+    var checkspecdelay = 2000;
     
     SWAM.on ( 'gameLoaded', init );
     
