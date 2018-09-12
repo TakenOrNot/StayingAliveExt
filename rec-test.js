@@ -7,7 +7,7 @@
         initEvents ();
         //initHtml ();
         //initRecorder ();
-        var checkspecdelay = 2000;
+        checkspecdelay = 2000;
     }
 
     function initEvents () {
