@@ -22,7 +22,7 @@
     
     /* GUI */
     
-    $('body').append ("<div id='sfcontainer' style='display: none;'><div id='sf' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px 125px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>SF</div></div>");
+    $('body').append ("<div id='sfcontainer' style='display: none;'><div id='sf' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px -75px;bottom: 4px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>SF</div></div>");
 
     $("#sf").click(function (){
         console.log("SF clicked");
