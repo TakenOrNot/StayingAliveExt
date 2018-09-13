@@ -26,9 +26,9 @@
     
     /* GUI */
     
-    $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='countdown' style='height: 100px;text-align: center; font-size: 2em; position: absolute; left: 50%; top: 40%; width: 400px; color: #FFF; margin: 0 0 0 -200px;'></div><div id='stayalive' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px -75px;bottom: 225px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'>Piss Off Jz !</div></div>");
+    $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='stayalivebtn' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px -75px;bottom: 225px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'><div id='stayalive'>Piss Off Jz !</div><div id='countdown' style='display:inline;'></div></div></div>");
 
-    $("#stayalive").click(function (){
+    $("#stayalivebtn").click(function (){
         console.log("Stay Alive clicked");
         console.log(stayalive);
         // if (stayalive === ''){
@@ -218,7 +218,7 @@
     SWAM.registerExtension ({
         name: 'Staying Alive',
         id: 'StayingAlive',
-        description: '',
+        description: 'Respawn automaticaly to avoid beeing kicked out',
         version: '1.0.0',
         author: 'xplay'
     });
