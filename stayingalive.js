@@ -26,7 +26,7 @@
     
     /* GUI */
     
-    $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='stayalivebtn' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px -75px;bottom: 225px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'><div id='stayalive'>Piss Off Jz !</div><div id='countdown' style='display:inline;'></div></div></div>");
+    $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='stayalivebtn' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px -75px;bottom: 225px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'><div id='stayalive' style='display: inline;'>Piss Off Jz !</div><div id='countdown' style='display:inline;'></div></div><div id='countdownover' style='height: 100px;text-align: center; font-size: 2em; position: absolute; left: 50%; top: 40%; width: 400px; color: #FFF; margin: 0 0 0 -200px;'></div></div>");
 
     $("#stayalivebtn").click(function (){
         console.log("Stay Alive clicked");
@@ -120,7 +120,8 @@
                     //if (stayalive == true){
                         console.log("AUTO RESPAWN IN 10sec");
                         //$("#countdown").css({display: "block"});
-                        $("#countdown").html('Respawning in 10 seconds');
+                        $("#countdownover").show();
+                        $("#countdownover").html('Respawning in 10 seconds');
                         window.setTimeout(function () {
                             console.log("StayAlive RESPAWN");
                             window.idletimeelapsed = 0;
@@ -188,6 +189,7 @@
                     if( $('#btnFreeSpectator').css('display') == 'block' ) {
                         console.log("show stay alive GUI");
                         $("#stayalivecontainer").css({display: "block"});
+                        $("#countdownover").hide();
                         window.idletimeelapsed = 0;
                         // start counting idle time
                         if (!idletimecounterbound){
@@ -196,7 +198,7 @@
                             window.idletimecounterbound = true;
                             function idletimecounter() {
                                 cddisplay = ((cdtotaltime/1000) - window.idletimeelapsed);
-                                $("#countdown").html(cddisplay);
+                                $("#countdown").html(" (" + cddisplay + ")");
                                 
                                 if (cddisplay <= 0){
                                     if (stayalive == true) {
