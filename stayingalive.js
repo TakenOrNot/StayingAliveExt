@@ -197,11 +197,11 @@
                             // var idletimeelapsed = 0;
                             window.idletimecounterbound = true;
                             function idletimecounter() {
-                                cddisplay = ((cdtotaltime/1000) - window.idletimeelapsed);
-                                cddisplay = new Date(1000 * cddisplay).toISOString().substr(11, 8).replace('00:','');
+                                cdcalc = ((cdtotaltime/1000) - window.idletimeelapsed);
+                                cddisplay = new Date(1000 * cdcalc).toISOString().substr(11, 8).replace('00:','');
                                 $("#countdown").html(" (" + cddisplay + ")");
                                 
-                                if (cddisplay <= 0){
+                                if (cdcalc <= 0){
                                     if (stayalive == true) {
                                         stayalivefn();
                                         window.idletimeelapsed = 0;
