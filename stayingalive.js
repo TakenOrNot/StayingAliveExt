@@ -35,7 +35,7 @@
         if (stayalive == false) {
             stayalive = true;
             // stayalivefn();
-            $("#stayalive").html('Stop P. Off Jz');
+            $("#stayalive").html('Stop P.O. Jz');
         }
         else {
             stayalive = false;
