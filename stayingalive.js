@@ -198,6 +198,7 @@
                             window.idletimecounterbound = true;
                             function idletimecounter() {
                                 cddisplay = ((cdtotaltime/1000) - window.idletimeelapsed);
+                                cddisplay = new Date(1000 * cddisplay).toISOString().substr(11, 8).replace('00:','');
                                 $("#countdown").html(" (" + cddisplay + ")");
                                 
                                 if (cddisplay <= 0){
