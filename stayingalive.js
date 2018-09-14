@@ -206,6 +206,12 @@
                                         stayalivefn();
                                         window.idletimeelapsed = 0;
                                     }
+                                    else {
+                                        
+                                        $("#countdownover").show();
+                                        $("#countdownover").html('Going to be AFK kicked soon !');
+                                        
+                                    }
                                 }
                                 else {
                                     window.idletimeelapsed++
