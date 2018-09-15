@@ -58,12 +58,12 @@
             //$('body').removeClass('focusmode');
             $('#logosmall').toggle( "slide" );
             $('#scorebig').toggle( "slide" );
-            $('#roomnamecontainer').toggle( "slide" );
+            $('#roomnamecontainer').fadeToggle( "fast");
             $('#scoreboard').toggle( "slide" );
-            $('#sidebar').toggle( "slide" );
-            $('#menu').toggle( "slide" );
+            $('#sidebar').fadeToggle( "fast");
+            $('#menu').fadeToggle( "fast");
             $('#chatbox').toggle( "slide" );
-            $('#settings').toggle( "slide" );
+            $('#settings').fadeToggle( "fast");
             $("#focus").html('Focus Mode');
         }
     });
