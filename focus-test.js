@@ -42,12 +42,28 @@
     $("#focus").click(function (){
         if (focusmode == false) {
             focusmode = true;
-            $('body').addClass('focusmode');
+            //$('body').addClass('focusmode');
+            $('#logosmall').toggle( "slide" );
+            $('#scorebig').toggle( "slide" );
+            $('#roomnamecontainer').toggle( "slide" );
+            $('#scoreboard').toggle( "slide" );
+            $('#sidebar').toggle( "slide" );
+            $('#menu').toggle( "slide" );
+            $('#chatbox').toggle( "slide" );
+            $('#settings').toggle( "slide" );
             $("#focus").html('Stop Focus');
         }
         else {
             focusmode = false;
-            $('body').removeClass('focusmode');
+            //$('body').removeClass('focusmode');
+            $('#logosmall').toggle( "slide" );
+            $('#scorebig').toggle( "slide" );
+            $('#roomnamecontainer').toggle( "slide" );
+            $('#scoreboard').toggle( "slide" );
+            $('#sidebar').toggle( "slide" );
+            $('#menu').toggle( "slide" );
+            $('#chatbox').toggle( "slide" );
+            $('#settings').toggle( "slide" );
             $("#focus").html('Focus Mode');
         }
     });
