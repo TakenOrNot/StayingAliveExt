@@ -102,8 +102,10 @@
             //newchatline = $('#chatlines > .line:first').prepend(chatline);
             //$('#chatlines > .line:last').delay(10000).slideUp("slow");
             //$('#chatlines > .line:first').delay(10000).slideDown("slow");
-            $(chatline).insertBefore( "#chatlines > .line:first" ).delay(10000).slideDown("slow");
+            $(chatline).insertBefore( "#chatlines > .line:first" );
             $('#chatlines > .line:last').remove();
+            
+            $('#chatlines > .line:first').delay(10000).slideDown("slow");
             //$('#chatlines > .line:first').delay(10000).slideDown("slow");
             //$(newchatline).delay(10000).slideDown("slow");
         }
