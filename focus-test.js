@@ -49,7 +49,7 @@
             $('#scoreboard').toggle( "slide" );
             $('#sidebar').fadeToggle( "fast");
             $('#menu').fadeToggle( "fast");
-            $('#chatbox').toggle( "slide" );
+            // $('#chatbox').toggle( "slide" );
             $('#settings').fadeToggle( "fast");
             $("#focus").html('Stop Focus');
         }
@@ -62,14 +62,19 @@
             $('#scoreboard').toggle( "slide" );
             $('#sidebar').fadeToggle( "fast");
             $('#menu').fadeToggle( "fast");
-            $('#chatbox').toggle( "slide" );
+            // $('#chatbox').toggle( "slide" );
             $('#settings').fadeToggle( "fast");
             $("#focus").html('Focus Mode');
         }
     });
     
 
-  
+    SWAM.on ( 'chatLineAdded', function () {
+        if (focusmode == true) {
+            $('#chatlines .line:last').fadeToggle( "fast");
+            
+        }
+    });
     
     function onKeydown ( event ) {
         
