@@ -107,7 +107,7 @@
             
             // TODO : dont only fadeToggle first line, target all visible lines
             //$('#chatlines > .line:first').delay(10000).fadeToggle("slow");
-            $('#chatlines > .line:visible').fadeToggle("slow");
+            $('#chatlines > .line:visible').delay(10000).fadeToggle("slow");
             
             
             //$('#chatlines > .line:first').delay(10000).slideDown("slow");
