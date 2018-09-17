@@ -92,6 +92,7 @@
     });
     
     var chatline = '';
+    var newchatline = '';
     SWAM.on ( 'chatLineAdded', function () {
         if (focusmode == true) {
             
