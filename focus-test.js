@@ -98,9 +98,10 @@
             //$('#chatlines > .line:last').delay(10000).fadeToggle( "slow");
             chatline = $(this).html();
             $(this).remove();
-            $('#chatlines > > .line:first').prepend(chatline);
+            newchatline = $('#chatlines > .line:first').prepend(chatline);
             //$('#chatlines > .line:last').delay(10000).slideUp("slow");
-            $('#chatlines > .line:first').delay(10000).slideDown("slow");
+            //$('#chatlines > .line:first').delay(10000).slideDown("slow");
+            $(newchatline).delay(10000).slideDown("slow");
         }
     });
     
