@@ -160,7 +160,7 @@
 
     function _getScales () {
 
-        return settings.sizes.split ( ',' ).map ( size => size.trim () );
+        return settings.scales.split ( ',' ).map ( scale => scale.trim () );
 
     }
 
