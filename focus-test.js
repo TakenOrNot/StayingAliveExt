@@ -91,12 +91,16 @@
         }
     });
     
-
+    var chatline = '';
     SWAM.on ( 'chatLineAdded', function () {
         if (focusmode == true) {
             
             //$('#chatlines > .line:last').delay(10000).fadeToggle( "slow");
-           $('#chatlines > .line:last').delay(10000).slideUp("slow");
+            chatline = $(this).html();
+            $(this).remove();
+            $('#chatlines > > .line:first').prepend(chatline);
+            //$('#chatlines > .line:last').delay(10000).slideUp("slow");
+            $('#chatlines > .line:first').delay(10000).slideDown("slow");
         }
     });
     
