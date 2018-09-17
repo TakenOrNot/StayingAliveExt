@@ -107,9 +107,9 @@
             
             // TODO : dont only fadeToggle first line, target all visible lines
             //$('#chatlines > .line:first').delay(10000).fadeToggle("slow");
-            $('#chatlines > .line:visible').delay(10000).fadeToggle("slow");
+            $('#chatlines > .line:visible').not( ".focushiden" ).delay(10000).fadeToggle("slow", function() {$(this).addClass('focushiden')});
             
-            
+            //.not( ".focushiden" )
             //$('#chatlines > .line:first').delay(10000).slideDown("slow");
             //$(newchatline).delay(10000).slideDown("slow");
             
