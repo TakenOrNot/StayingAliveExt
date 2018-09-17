@@ -105,7 +105,7 @@
             $(chatline).insertBefore( "#chatlines > .line:first" );
             $('#chatlines > .line:last').remove();
             
-            $('#chatlines > .line:first').delay(10000).slideDown("slow");
+            $('#chatlines > .line:first').delay(10000).slideUp("slow");
             //$('#chatlines > .line:first').delay(10000).slideDown("slow");
             //$(newchatline).delay(10000).slideDown("slow");
         }
