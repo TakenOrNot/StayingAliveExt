@@ -97,7 +97,7 @@
         if (focusmode == true) {
             
             //$('#chatlines > .line:last').delay(10000).fadeToggle( "slow");
-            chatline = $('#chatlines > .line:last').html();
+            chatline = $('#chatlines > .line:last')[0].outerHTML;
             
             //newchatline = $('#chatlines > .line:first').prepend(chatline);
             //$('#chatlines > .line:last').delay(10000).slideUp("slow");
