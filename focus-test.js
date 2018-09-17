@@ -21,14 +21,19 @@
 
         const focusStyle = `
                     <style id='focusmodeStyle'>
-                        .focusmode > #logosmall {opacity:0;}
-                        .focusmode > #scorebig {opacity:0;}
-                        .focusmode > #roomnamecontainer {opacity:0;}
-                        .focusmode > #scoreboard {opacity:0;}
-                        .focusmode > #sidebar {opacity:0;}
-                        .focusmode > #menu {opacity:0;}
-                        .focusmode > #chatbox {opacity:0;}
-                        .focusmode > #settings {opacity:0;}
+                        
+                        .focusmode > #chatbox > #chatlines > .line {opacity:1; -webkit-animation: fadeaway .5s forwards; animation-iteration-count: 1;}
+                        
+                        @-webkit-keyframes fadeaway {
+                              from {
+
+                                opacity: 1;
+                              }
+                              to {
+
+                                opacity: 0;
+                              }
+                            }
 
                     </style>
                 `
@@ -52,6 +57,8 @@
             // $('#chatbox').toggle( "slide" );
             $('#settings').fadeToggle( "fast");
             $("#focus").html('Stop Focus');
+            
+
         }
         else {
             focusmode = false;
@@ -71,7 +78,8 @@
 
     SWAM.on ( 'chatLineAdded', function () {
         if (focusmode == true) {
-            $('#chatlines .line:last').fadeToggle( "fast");
+            
+            $('#chatlines > .line:last').delay(10000).fadeToggle( "slow");
             
         }
     });
