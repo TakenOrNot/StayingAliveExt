@@ -7,7 +7,7 @@
     /* VARIABLES */
 
     let settings = {
-        scales: '3500, 4500, 6000'
+        scales: '3500, 4500, 6000, 4500'
     },
     scaleIndex = -1;
     
@@ -180,8 +180,8 @@
     /* REGISTER */
 
     SWAM.registerExtension ({
-        name: 'SF',
-        id: 'SF',
+        name: 'Scaling Factor Cycle',
+        id: 'SFC',
         description: '',
         version: '1.0.0',
         author: 'xplay'
