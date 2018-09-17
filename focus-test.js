@@ -105,9 +105,18 @@
             $(chatline).insertBefore( "#chatlines > .line:first" );
             $('#chatlines > .line:last').remove();
             
-            $('#chatlines > .line:first').delay(10000).fadeToggle("slow");
+            // TODO : dont only fadeToggle first line, target all visible lines
+            //$('#chatlines > .line:first').delay(10000).fadeToggle("slow");
+            $('#chatlines > .line:visible').fadeToggle("slow");
+            
+            
             //$('#chatlines > .line:first').delay(10000).slideDown("slow");
             //$(newchatline).delay(10000).slideDown("slow");
+            
+            // TODO if firstchild hasclass whisper / team
+            // delay 30
+            // else 
+            // delay 10
         }
     });
     
