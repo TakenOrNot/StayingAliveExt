@@ -24,6 +24,8 @@
                         
                         .focusmode > #chatbox > #chatlines > .line {opacity:1; -webkit-animation: fadeaway .5s forwards; animation-iteration-count: 1;}
                         
+                        .focushiden {display:none;}
+
                         @-webkit-keyframes fadeaway {
                               from {
 
