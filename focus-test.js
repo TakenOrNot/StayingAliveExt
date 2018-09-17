@@ -56,8 +56,12 @@
             $('#menu').fadeToggle( "fast");
             // $('#chatbox').toggle( "slide" );
             $('#settings').fadeToggle( "fast");
-            $("#focus").html('Stop Focus');
             
+            $('#chatlines > .line').each(function( index ) {
+                $(this).delay(10000).fadeOut("slow");
+            });
+            
+            $("#focus").html('Stop Focus');
 
         }
         else {
@@ -71,6 +75,10 @@
             $('#menu').fadeToggle( "fast");
             // $('#chatbox').toggle( "slide" );
             $('#settings').fadeToggle( "fast");
+            
+            $('#chatlines > .line').each(function( index ) {
+                $(this).delay(10000).fadeIn("slow");
+            });
             $("#focus").html('Focus Mode');
         }
     });
