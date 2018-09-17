@@ -83,6 +83,14 @@
         }
     });
     
+    SWAM.on ( 'gamePrep', function () {
+        if (focusmode == true) {
+            $('#chatlines > .line').each(function( index ) {
+                $(this).delay(1000).fadeOut("slow");
+            });
+        }
+    });
+    
 
     SWAM.on ( 'chatLineAdded', function () {
         if (focusmode == true) {
@@ -97,10 +105,6 @@
         if ( event.originalEvent.key === 'v' ) { //note: This is not reliable to know if player is actually spectating
 
             event.stopImmediatePropagation ();
-            
-            // game.spectatingID is not reliable, as it is null at first when spectating, until we spectate another player      
-            //checkspecdelay = 2000;
-            //checkspec(checkspecdelay)
                
             
         }
