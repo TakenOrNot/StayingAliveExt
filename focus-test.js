@@ -58,7 +58,7 @@
             $('#settings').fadeToggle( "fast");
             
             $('#chatlines > .line').each(function( index ) {
-                $(this).delay(10000).fadeOut("slow");
+                $(this).delay(1000).fadeOut("slow");
             });
             
             $("#focus").html('Stop Focus');
@@ -77,7 +77,7 @@
             $('#settings').fadeToggle( "fast");
             
             $('#chatlines > .line').each(function( index ) {
-                $(this).delay(10000).fadeIn("slow");
+                $(this).delay(1000).fadeIn("slow");
             });
             $("#focus").html('Focus Mode');
         }
@@ -87,8 +87,8 @@
     SWAM.on ( 'chatLineAdded', function () {
         if (focusmode == true) {
             
-            $('#chatlines > .line:last').delay(10000).fadeToggle( "slow");
-            
+            //$('#chatlines > .line:last').delay(10000).fadeToggle( "slow");
+           $('#chatlines > .line:last').delay(10000).slideUp("slow");
         }
     });
     
