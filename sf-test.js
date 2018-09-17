@@ -168,7 +168,7 @@
 
         const scales = _getScales ();
 
-        scaleIndex = index === undefined ? ( scaleIndex + 1 ) % scale.length : index;
+        scaleIndex = index === undefined ? ( scaleIndex + 1 ) % scales.length : index;
 
         const scale = scales[scaleIndex];
 
