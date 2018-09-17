@@ -2,6 +2,15 @@
 //   Stay Alive for StarMash
 // ------------------------------------------------------------------------
 !function () {
+    
+    
+    /* VARIABLES */
+
+    let settings = {
+        scales: '3500, 4500, 6000'
+    },
+    scaleIndex = -1;
+    
     /* INIT */
     function init () {
         console.log('init SF');
@@ -11,14 +20,21 @@
 
     function initEvents () {
         SWAM.on ( 'keydown', onKeydown );
-        // TODO on CTF match started, wait 10 sec and check if we are in spec, if so lauch idletime, and if stayalive = true, launch also the countdown
         SWAM.on ( 'CTF_MatchStarted', onMatchStarted );
     }
     
+    function initSettings () {
+
+        const provider = new SettingsProvider ( settings, updated => settings = updated ),
+        section = provider.addSection ( 'General' );
+
+        section.addString ( 'scales', 'Scaling Factor' );
+
+        return provider;
+
+    }
+    
     SWAM.on ( 'gameLoaded', init );
-    
-    
-    
     
     /* GUI */
     
@@ -27,15 +43,15 @@
     $("#sf").click(function (){
         console.log("SF clicked");
         
-        if (config.scalingFactor === 10000) {
-            config.scalingFactor = osf;
-            SWAM.ZoomTo(osf);
+        //if (config.scalingFactor === 10000) {
+        //    config.scalingFactor = osf;
+        //    SWAM.ZoomTo(osf);
                 
-        } else {
-            config.scalingFactor = 10000;
-            SWAM.ZoomTo(10000);
-        }
-        // Network.sendCommand("spectate", game.myID + "");
+        //} else {
+        //    config.scalingFactor = 10000;
+        //    SWAM.ZoomTo(10000);
+        //}
+        
 
         
         
@@ -71,6 +87,8 @@
         }); 
 
         
+        cycleScale();
+        
     });
     
     SWAM.on("playerRespawned", function(data){
@@ -92,31 +110,31 @@
     
     function onKeydown ( event ) {
         
-        if ( event.originalEvent.key === 'v' ) { //note: This is not reliable to know if player is actually spectating
+        if ( event.originalEvent.key === 'v' ) { 
 
             event.stopImmediatePropagation ();
-            
-            // game.spectatingID is not reliable, as it is null at first when spectating, until we spectate another player      
+   
             checkspecdelay = 2000;
             checkspec(checkspecdelay)
                
             
         }
-         if ( event.originalEvent.key === 'u' ) { //note: This is not reliable to know if player is actually spectating
+         if ( event.originalEvent.key === 'u' ) { 
 
             event.stopImmediatePropagation ();
-            
-            // game.spectatingID is not reliable, as it is null at first when spectating, until we spectate another player      
+  
              console.log("u key pressed");
-            if (config.scalingFactor === 10000) {
-                config.scalingFactor = osf;
-                SWAM.ZoomTo(osf);
+            // if (config.scalingFactor === 10000) {
+            //     config.scalingFactor = osf;
+            //     SWAM.ZoomTo(osf);
                 
-            } else {
-                config.scalingFactor = 10000;
-                SWAM.ZoomTo(10000);
-            }
+            // } else {
+            //     config.scalingFactor = 10000;
+            //     SWAM.ZoomTo(10000);
+            // }
             
+            
+            cycleScale(); 
                
             
         }
@@ -138,6 +156,27 @@
                 },checkspecdelay); 
     }
 
+    /* API */
+
+    function _getScales () {
+
+        return settings.sizes.split ( ',' ).map ( size => size.trim () );
+
+    }
+
+    function cycleScale ( index ) {
+
+        const scales = _getScales ();
+
+        scaleIndex = index === undefined ? ( scaleIndex + 1 ) % scale.length : index;
+
+        const scale = scales[scaleIndex];
+
+        config.scalingFactor = scale;
+        SWAM.ZoomTo(scale);
+
+
+    } 
     /* REGISTER */
 
     SWAM.registerExtension ({
