@@ -24,7 +24,7 @@
                         
                         .focusmode > #chatbox > #chatlines > .line {opacity:1; -webkit-animation: fadeaway .5s forwards; animation-iteration-count: 1;}
                         
-                        .focushiden {display:none;}
+                        
 
                         @-webkit-keyframes fadeaway {
                               from {
@@ -109,7 +109,8 @@
             
             // TODO : dont only fadeToggle first line, target all visible lines
             //$('#chatlines > .line:first').delay(10000).fadeToggle("slow");
-            $('#chatlines > .line:visible').not( ".focushiden" ).delay(10000).fadeToggle("slow", function() {$(this).addClass('focushiden').css({display: "none"});});
+            //$('#chatlines > .line:visible').not( ".focushiden" ).delay(10000).fadeToggle("slow", function() {$(this).addClass('focushiden').css({display: "none"});});
+            $('#chatlines > .line:visible').not( ".focushiden" ).addClass('focushiden').delay(10000).fadeToggle("slow", function() {$(this).css({display: "none"});});
             
             //.not( ".focushiden" )
             //$('#chatlines > .line:first').delay(10000).slideDown("slow");
