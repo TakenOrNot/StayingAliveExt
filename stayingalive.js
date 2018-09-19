@@ -130,27 +130,32 @@
                             //window.setTimeout(function () {
 
                                 console.log("try to go back to spectate");
-                                // var specid = $( "#scoreboard .line" ).attr('player-id');
-                                // console.log("spectate force");
-                                // Network.sendCommand("spectate", "'" + specid + "'" + "");
-                                // Network.sendCommand("spectate", specid + "");
-                                // TODO try to force spectate until it works, in case we got killed when respawned
+                                
+                                // try to force spectate until it works, in case we got killed when respawned
+                                var forcespectries = 0;
                                 var forcespecinterval = setInterval(forcespec, 5000);
                                 function forcespec() {
+                                    // try maximum 10 times
+                                    forcespectries = forcespectries + 1;
+                                    if (forcespectries < 10){
+                                        if( $('#btnFreeSpectator').css('display') == 'block' ) {
 
-                                    if( $('#btnFreeSpectator').css('display') == 'block' ) {
+                                                clearInterval(forcespecinterval);
+                                        }
+                                        else {
+                                            console.log("try force spec");
+                                            Network.spectateForce();
+                                            // stayalivefn();
 
-                                            clearInterval(forcespecinterval);
+                                            // $("#stayalivecontainer").css({display: "block"});
+                                            // $("#countdown").css({display: "none"});
+                                            checkspecdelay = 10000;
+                                            checkspec(checkspecdelay)
+                                        }
                                     }
                                     else {
-                                        console.log("try force spec");
-                                        Network.spectateForce();
-                                        // stayalivefn();
-                                        
-                                        // $("#stayalivecontainer").css({display: "block"});
-                                        // $("#countdown").css({display: "none"});
-                                        checkspecdelay = 10000;
-                                        checkspec(checkspecdelay)
+                                        window.stayalive = false;
+                                        clearInterval(forcespecinterval);
                                     }
                                 }
 
@@ -220,7 +225,7 @@
                         }
                     }
                     else {
-                        // not spectating anymore
+                        // not spectating 10 sec after match started / 2 sec after v pressed
                         window.stayalive = false;
                         
                     }
