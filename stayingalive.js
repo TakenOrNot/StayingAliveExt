@@ -219,6 +219,11 @@
                             }
                         }
                     }
+                    else {
+                        // not spectating anymore
+                        window.stayalive = false;
+                        
+                    }
                 },checkspecdelay); 
     }
 
