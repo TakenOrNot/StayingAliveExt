@@ -135,9 +135,9 @@
                                 var forcespectries = 0;
                                 var forcespecinterval = setInterval(forcespec, 5000);
                                 function forcespec() {
-                                    // try maximum 10 times
+                                    // try maximum 5 times
                                     forcespectries = forcespectries + 1;
-                                    if (forcespectries < 10){
+                                    if (forcespectries < 5){
                                         if( $('#btnFreeSpectator').css('display') == 'block' ) {
 
                                                 clearInterval(forcespecinterval);
