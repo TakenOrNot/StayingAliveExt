@@ -6,6 +6,7 @@
     function init () {
         console.log('init Staying Alive');
         initEvents ();
+        initStyle ();
         window.stayalive = false;
         window.idletimecounterbound = false;
         // cdtime = 60000*9;
@@ -14,8 +15,8 @@
     }
 
     function initEvents () {
-        SWAM.on ( 'keydown', onKeydown );
-        // TODO on CTF match started, wait 10 sec and check if we are in spec, if so lauch idletime, and if stayalive = true, launch also the countdown
+        // SWAM.on ( 'keydown', onKeydown );
+        // on CTF match started, wait 10 sec and check if we are in spec, if so lauch idletime, and if stayalive = true, launch also the countdown
         SWAM.on ( 'CTF_MatchStarted', onMatchStarted );
     }
     
@@ -26,7 +27,7 @@
     
     /* GUI */
     
-    $('body').append ("<div id='stayalivecontainer' style='display: none;'><div id='stayalivebtn' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px -75px;bottom: 225px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'><div id='stayalive' style='display: inline;'>Piss Off Jz !</div><div id='countdown' style='display:inline;'></div></div><div id='countdownover' class='message' style='height: 100px;text-align: center; font-size: 2em; position: absolute; left: 50%; top: 40%; width: 400px; color: #FFF; margin: 0 0 0 -200px;'></div></div>");
+    $('body').append ("<div id='stayalivecontainer''><div id='stayalivebtn' style='display: block; position: absolute;left: 50%;margin: 0px 0px 0px -75px;bottom: 225px;width: 150px;height: 25px;padding: 5px;background: rgba(0, 247, 0, 0.5);border-radius: 5px;text-align: center;color: #EEE;font-size: 15px;cursor: pointer;'><div id='stayalive' style='display: inline;'>Piss Off Jz !</div><div id='countdown' style='display:inline;'></div></div><div id='countdownover' class='message' style='height: 100px;text-align: center; font-size: 2em; position: absolute; left: 50%; top: 40%; width: 400px; color: #FFF; margin: 0 0 0 -200px;'></div></div>");
 
     $("#stayalivebtn").click(function (){
         console.log("Stay Alive clicked");
@@ -45,31 +46,31 @@
     $('#selectaircraft-1').click(function (){
         stayalive = false;
         
-        $("#stayalivecontainer").css({display: "none"});
+        //$("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     }); 
     $('#selectaircraft-2').click(function (){
         stayalive = false;
         
-        $("#stayalivecontainer").css({display: "none"});
+        //$("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     });     
     $('#selectaircraft-3').click(function (){
         stayalive = false;
         
-        $("#stayalivecontainer").css({display: "none"});
+        //$("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     });
     $('#selectaircraft-4').click(function (){
         stayalive = false;
         
-        $("#stayalivecontainer").css({display: "none"});
+        //$("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     });
     $('#selectaircraft-5').click(function (){
         stayalive = false;
         
-        $("#stayalivecontainer").css({display: "none"});
+        //$("#stayalivecontainer").css({display: "none"});
         $("#stayalive").html('Piss Off Jz');
     }); 
             
@@ -90,8 +91,8 @@
     SWAM.on("playerRespawned", function(data){
             respawnedid = data['id'];
             if (respawnedid == Players.getMe().id){
-                console.log("player respawned, hide Stay Alive GUI");
-                $("#stayalivecontainer").css({display: "none"});
+                //console.log("player respawned, hide Stay Alive GUI");
+                //$("#stayalivecontainer").css({display: "none"});
                 
             }
     });
@@ -99,7 +100,7 @@
     SWAM.on ( 'gamePrep', function (){
         console.log("game prep");
         stayalive = false;
-        $("#stayalivecontainer").css({display: "none"});
+        //$("#stayalivecontainer").css({display: "none"});
         
     });
     
@@ -168,7 +169,7 @@
                 //}, cdtime);
         }
     }
-    
+    /*
     function onKeydown ( event ) {
         
         if ( event.originalEvent.key === 'v' ) { //note: This is not reliable to know if player is actually spectating
@@ -183,6 +184,7 @@
         }
         
     }
+    */
     
     function onMatchStarted () {
         checkspecdelay = 10000;
@@ -193,7 +195,7 @@
         window.setTimeout(function () {
                     if( $('#btnFreeSpectator').css('display') == 'block' ) {
                         console.log("show stay alive GUI");
-                        $("#stayalivecontainer").css({display: "block"});
+                       // $("#stayalivecontainer").css({display: "block"});
                         $("#countdownover").hide();
                         window.idletimeelapsed = 0;
                         // start counting idle time
@@ -231,7 +233,20 @@
                     }
                 },checkspecdelay); 
     }
+    
+    function initStyle () {
 
+        const style = `
+            <style id='stayaliveStyle'>
+                #stayalivecontainer {display: none;}
+                .spectatorMode > #stayalivecontainer {display: block;}
+            </style>
+        `
+        
+        $('body').append ( style );
+        
+    }
+    
     /* REGISTER */
 
     SWAM.registerExtension ({
