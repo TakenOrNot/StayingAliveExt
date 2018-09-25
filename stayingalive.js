@@ -43,36 +43,36 @@
             $("#stayalive").html('Piss Off Jz');
         }
         
-    $('#selectaircraft-1').click(function (){
-        stayalive = false;
-        
-        //$("#stayalivecontainer").css({display: "none"});
-        $("#stayalive").html('Piss Off Jz');
-    }); 
-    $('#selectaircraft-2').click(function (){
-        stayalive = false;
-        
-        //$("#stayalivecontainer").css({display: "none"});
-        $("#stayalive").html('Piss Off Jz');
-    });     
-    $('#selectaircraft-3').click(function (){
-        stayalive = false;
-        
-        //$("#stayalivecontainer").css({display: "none"});
-        $("#stayalive").html('Piss Off Jz');
-    });
-    $('#selectaircraft-4').click(function (){
-        stayalive = false;
-        
-        //$("#stayalivecontainer").css({display: "none"});
-        $("#stayalive").html('Piss Off Jz');
-    });
-    $('#selectaircraft-5').click(function (){
-        stayalive = false;
-        
-        //$("#stayalivecontainer").css({display: "none"});
-        $("#stayalive").html('Piss Off Jz');
-    }); 
+        $('#selectaircraft-1').click(function (){
+            stayalive = false;
+
+            //$("#stayalivecontainer").css({display: "none"});
+            $("#stayalive").html('Piss Off Jz');
+        }); 
+        $('#selectaircraft-2').click(function (){
+            stayalive = false;
+
+            //$("#stayalivecontainer").css({display: "none"});
+            $("#stayalive").html('Piss Off Jz');
+        });     
+        $('#selectaircraft-3').click(function (){
+            stayalive = false;
+
+            //$("#stayalivecontainer").css({display: "none"});
+            $("#stayalive").html('Piss Off Jz');
+        });
+        $('#selectaircraft-4').click(function (){
+            stayalive = false;
+
+            //$("#stayalivecontainer").css({display: "none"});
+            $("#stayalive").html('Piss Off Jz');
+        });
+        $('#selectaircraft-5').click(function (){
+            stayalive = false;
+
+            //$("#stayalivecontainer").css({display: "none"});
+            $("#stayalive").html('Piss Off Jz');
+        }); 
             
                     // };       
 
@@ -127,7 +127,7 @@
                             console.log("StayAlive RESPAWN");
                             window.idletimeelapsed = 0;
                             UI.selectAircraft(1)
-
+                            $("#countdownover").hide();
                             //window.setTimeout(function () {
 
                                 console.log("try to go back to spectate");
@@ -140,7 +140,7 @@
                                     forcespectries = forcespectries + 1;
                                     if (forcespectries < 5){
                                         if( $('#btnFreeSpectator').css('display') == 'block' ) {
-
+                                                
                                                 clearInterval(forcespecinterval);
                                         }
                                         else {
@@ -170,6 +170,8 @@
         }
     }
     
+    
+    // TODO : replace by spectate event
     function onKeydown ( event ) {
         
         if ( event.originalEvent.key === 'v' ) { //note: This is not reliable to know if player is actually spectating
@@ -184,7 +186,6 @@
         }
         
     }
-    
     
     function onMatchStarted () {
         checkspecdelay = 10000;
